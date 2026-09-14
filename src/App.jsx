@@ -215,6 +215,9 @@ function App() {
           <a href="#about" onClick={() => setActiveDetailPage(null)}>About Me</a>
           <a href="#portfolio" onClick={() => setActiveDetailPage(null)}>Portfolio</a>
           <a href="#interests" onClick={() => setActiveDetailPage(null)}>Interests</a>
+          <a href="#trends" onClick={() => setActiveDetailPage(null)}>IT Trends</a>
+          <a href="#dark-side" onClick={() => setActiveDetailPage(null)}>Dark Side</a>
+          <a href="#fourth-industrial-revolution" onClick={() => setActiveDetailPage(null)}>4IR</a>
           <a href="#contact" onClick={() => setActiveDetailPage(null)}>Contact</a>
         </nav>
 
@@ -240,6 +243,9 @@ function App() {
             <div className="hero-actions">
               <a className="primary-btn" href="#portfolio">
                 Downloadable CV
+              </a>
+              <a className="primary-btn" href="#trends" onClick={() => setActiveDetailPage(null)}>
+                View IT Trends
               </a>
             </div>
           </div>
@@ -330,6 +336,21 @@ function App() {
                 ))}
               </div>
             </section>
+
+            <section className="portfolio-subsection" id="skills">
+              <div className="section-heading">
+                <p className="eyebrow">Skills</p>
+                <h2>Core strengths and technical capabilities.</h2>
+              </div>
+
+              <div className="skills-grid">
+                {skills.map((skill) => (
+                  <span key={skill} className="skill-pill">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
 
@@ -379,22 +400,7 @@ function App() {
           </div>
         </section>
 
-        <section className={`section skills ${activeDetailPage ? 'hidden-section' : ''}`} id="skills">
-          <div className="section-heading">
-            <p className="eyebrow">Skills</p>
-            <h2>Core strengths and technical capabilities.</h2>
-          </div>
-
-          <div className="skills-grid">
-            {skills.map((skill) => (
-              <span key={skill} className="skill-pill">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        <section className={`section trends ${activeDetailPage !== 'trends' ? 'hidden-section' : ''}`} id="trends">
+        <section className={`section trends ${activeDetailPage && activeDetailPage !== 'trends' ? 'hidden-section' : ''}`} id="trends">
           <div className="section-heading">
             <p className="eyebrow">IT Trends</p>
             <h2>Top 5 IT Trends</h2>
@@ -516,7 +522,7 @@ function App() {
           </div>
         </section>
 
-        <section className={`section dark-side ${activeDetailPage !== 'dark-side' ? 'hidden-section' : ''}`} id="dark-side" aria-label="Dark side of technology">
+        <section className={`section dark-side ${activeDetailPage && activeDetailPage !== 'dark-side' ? 'hidden-section' : ''}`} id="dark-side" aria-label="Dark side of technology">
           <div className="dark-side-inner">
             <p className="eyebrow">Dark side of technology</p>
             <h2>The Dark Side of Technology</h2>
@@ -877,7 +883,7 @@ function App() {
           </div>
         </section>
 
-        <section className={`section fourth-industrial ${activeDetailPage !== 'fourth-industrial-revolution' ? 'hidden-section' : ''}`} id="fourth-industrial-revolution" aria-label="Fourth Industrial Revolution">
+        <section className={`section fourth-industrial ${activeDetailPage && activeDetailPage !== 'fourth-industrial-revolution' ? 'hidden-section' : ''}`} id="fourth-industrial-revolution" aria-label="Fourth Industrial Revolution">
           <div className="fourth-industrial-inner">
             <p className="eyebrow">Industry 4.0 to Industry 5.0</p>
             <h2>From Industry 4.0 to Industry 5.0</h2>
