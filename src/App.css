@@ -471,6 +471,17 @@ footer[id] {
   align-items: center;
 }
 
+.trend-figure-image {
+  max-width: 760px;
+  margin: 26px auto 0;
+}
+
+.figure-intro {
+  margin: 24px 0 0;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
 .trend-visual img {
   width: 100%;
   max-height: 320px;
@@ -480,6 +491,31 @@ footer[id] {
   border: 0;
   opacity: 0.92;
   mix-blend-mode: normal;
+}
+
+.trend-figure-notes {
+  margin-top: 24px;
+  color: var(--text-soft);
+}
+
+.trend-figure-notes .figure-caption {
+  margin: 0 0 14px;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.trend-figure-notes ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.trend-figure-notes li {
+  padding-left: 6px;
+  line-height: 1.8;
+}
+
+.trend-figure-notes li + li {
+  margin-top: 12px;
 }
 
 .theme-dark .trend-visual img {

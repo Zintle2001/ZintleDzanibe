@@ -9,6 +9,7 @@ import interestsPhotoThree from './assets/interests-photo-3.jpg'
 import interestsPhotoFour from './assets/interests-photo-4.jpg'
 import fourIRPhoto from './assets/4IR.png'
 import securityAIPhoto from './assets/securityAI.png'
+import researchAIPhoto from './assets/ResearchAI.png'
 
 const skills = [
   'Data Science',
@@ -153,6 +154,14 @@ const trendReport = [
   {
     title: 'AI Security',
     image: securityAIPhoto,
+    figureIntro: 'The research in Figure 2 helped AI researchers and practitioners gain a thorough understanding of the inherent vulnerabilities and existing defence methods in AI systems. These are divided into sections.',
+    figureCaption: 'Figure 2. Taxonomy of attacks and defences in AI models in machine learning.',
+    figurePoints: [
+      'In Section 2, the analysis of vulnerabilities during the AI training phase focused on comparing attack vectors in centralised and distributed environments. In the centralised setting, particular attention was given to poisoning and backdoor attacks. In decentralised environments, the analysis first examined poisoning and privacy inference in federated learning. It then explored privacy inference and backdoor attacks within the split learning paradigm.',
+      'In Section 3, shifting to the inference stage, the discussion covers classical ML attacks, including model stealing, private-data leakage, fault injection, and adversarial inputs, alongside emerging foundation-model threats such as jailbreaks and prompt attacks.',
+      'In Section 4, the discussion presents defence tactics for protecting both centralised and distributed AI systems. The survey addresses defences against data poisoning, exit, and model-hijacking attacks in centralised settings, as well as defences and privacy-preserving techniques against data poisoning and backdoor attacks in federated and split learning.',
+      'In Section 5, the discussion of inference-stage defences initially focused on the conventional centralised environment. These defences included strategies for detecting model stealing, fault injection, and adversarial attacks, as well as privacy-preserving techniques. The focus later shifted towards foundation models, with greater attention given to protecting their integrity against jailbreaks and prompt-based attacks (He et al., 2025).',
+    ],
     paragraphs: [
       'Strengthens the industry\'s defences with proactive cybersecurity AI designed to predict attack paths and guide remediation before damage occurs. Autonomous security software can perform end-to-end cybersecurity tasks, including threat monitoring, incident response, and vulnerability patching, with minimal human intervention (TrendAI, 2026).',
       'Unlike traditional security software, which relies on static rules, or simple AI copilots that only summarise alerts, security agents can reason, plan multi-step actions, query databases, and execute remediation workflows dynamically. As technology evolves and adversaries become more sophisticated, businesses need security that can respond at the same speed.',
@@ -163,6 +172,8 @@ const trendReport = [
   },
   {
     title: 'AI Research Partners',
+    image: researchAIPhoto,
+    imagePosition: 'right',
     paragraphs: [
       'AI in 2026 is no longer only summarising research papers; it is actively participating in discovery. These systems can generate hypotheses independently, control scientific experiments, and collaborate with human and AI research colleagues across industries.',
       'Researchers face a breadth-and-depth challenge: scientific topics require increasingly specialised expertise, while important insights may come from connecting knowledge across disciplines. AI systems can reason across complex fields, process multiple types of information, and use tools to solve long-term problems.',
@@ -1066,16 +1077,42 @@ function App() {
             <article key={trend.title} className="trend-card">
               <h3>{trend.title}</h3>
               {trend.image ? (
-                <div className="trend-item-layout">
-                  <div className="trend-copy">
-                    {trend.paragraphs.map((paragraph) => (
-                      <p key={paragraph.slice(0, 18)}>{paragraph}</p>
-                    ))}
+                trend.imagePosition === 'right' ? (
+                  <div className="trend-item-layout research-ai-layout">
+                    <div className="trend-copy">
+                      {trend.paragraphs.map((paragraph) => (
+                        <p key={paragraph.slice(0, 18)}>{paragraph}</p>
+                      ))}
+                    </div>
+                    <div className="trend-visual">
+                      <img src={trend.image} alt="Research AI technology" loading="lazy" />
+                    </div>
                   </div>
-                  <div className="trend-visual">
-                    <img src={trend.image} alt="AI security technology" loading="lazy" />
-                  </div>
-                </div>
+                ) : (
+                  <>
+                    <div className="trend-copy">
+                      {trend.paragraphs.map((paragraph) => (
+                        <p key={paragraph.slice(0, 18)}>{paragraph}</p>
+                      ))}
+                    </div>
+                    {trend.figureIntro && (
+                      <p className="figure-intro">{trend.figureIntro}</p>
+                    )}
+                    <div className="trend-visual trend-figure-image">
+                      <img src={trend.image} alt="AI security technology" loading="lazy" />
+                    </div>
+                    {trend.figureCaption && (
+                      <div className="trend-figure-notes">
+                        <p className="figure-caption">{trend.figureCaption}</p>
+                        <ul>
+                          {trend.figurePoints.map((point) => (
+                            <li key={point}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                )
               ) : (
                 trend.paragraphs.map((paragraph) => (
                   <p key={paragraph.slice(0, 18)}>{paragraph}</p>
