@@ -461,6 +461,15 @@ footer[id] {
   align-items: center;
 }
 
+.research-ai-layout {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.research-ai-layout .trend-visual img {
+  max-height: 500px;
+  transform: scale(1.28);
+}
+
 .trend-copy {
   min-width: 0;
 }
@@ -536,6 +545,10 @@ footer[id] {
 @media (max-width: 760px) {
   .trend-item-layout {
     grid-template-columns: 1fr;
+  }
+
+  .research-ai-layout .trend-visual img {
+    transform: none;
   }
 }
 
