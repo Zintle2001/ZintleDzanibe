@@ -8,6 +8,7 @@ import interestsPhotoTwo from './assets/interests-photo-2.jpg'
 import interestsPhotoThree from './assets/interests-photo-3.jpg'
 import interestsPhotoFour from './assets/interests-photo-4.jpg'
 import fourIRPhoto from './assets/4IR.png'
+import securityAIPhoto from './assets/securityAI.png'
 
 const skills = [
   'Data Science',
@@ -151,6 +152,7 @@ const trends = [
 const trendReport = [
   {
     title: 'AI Security',
+    image: securityAIPhoto,
     paragraphs: [
       'Strengthens the industry\'s defences with proactive cybersecurity AI designed to predict attack paths and guide remediation before damage occurs. Autonomous security software can perform end-to-end cybersecurity tasks, including threat monitoring, incident response, and vulnerability patching, with minimal human intervention (TrendAI, 2026).',
       'Unlike traditional security software, which relies on static rules, or simple AI copilots that only summarise alerts, security agents can reason, plan multi-step actions, query databases, and execute remediation workflows dynamically. As technology evolves and adversaries become more sophisticated, businesses need security that can respond at the same speed.',
@@ -799,9 +801,11 @@ const southAfricaIRReferences = [
 function App() {
   const [isDark, setIsDark] = useState(true)
   const [activePage, setActivePage] = useState('home')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const changePage = (page) => {
     setActivePage(page)
+    setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
     if (window.history && window.history.replaceState) {
@@ -833,13 +837,13 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <button
-              type="button"
+            <a
               className="primary-btn"
-              onClick={() => changePage('portfolio')}
+              href={`${import.meta.env.BASE_URL}Zintle-Zinyanga-CV.pdf`}
+              download="Zintle-Zinyanga-CV.pdf"
             >
-              View Portfolio
-            </button>
+              Download CV
+            </a>
           </div>
 
         </div>
@@ -1061,9 +1065,22 @@ function App() {
           {trendReport.map((trend) => (
             <article key={trend.title} className="trend-card">
               <h3>{trend.title}</h3>
-              {trend.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 18)}>{paragraph}</p>
-              ))}
+              {trend.image ? (
+                <div className="trend-item-layout">
+                  <div className="trend-copy">
+                    {trend.paragraphs.map((paragraph) => (
+                      <p key={paragraph.slice(0, 18)}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <div className="trend-visual">
+                    <img src={trend.image} alt="AI security technology" loading="lazy" />
+                  </div>
+                </div>
+              ) : (
+                trend.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 18)}>{paragraph}</p>
+                ))
+              )}
             </article>
           ))}
         </div>
@@ -1507,7 +1524,7 @@ function App() {
       <header className="topbar">
         <div className="brand">Z</div>
 
-        <nav className="nav" aria-label="Main navigation">
+        <nav className="nav desktop-nav" aria-label="Main navigation">
           {navItems.map((item) => (
             <button
               key={item.key}
@@ -1520,13 +1537,57 @@ function App() {
           ))}
         </nav>
 
+        {activePage !== 'home' && (
+          <button
+            type="button"
+            className="theme-toggle desktop-theme-toggle"
+            onClick={() => setIsDark((value) => !value)}
+          >
+            {isDark ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        )}
+
         <button
           type="button"
-          className="theme-toggle"
-          onClick={() => setIsDark((value) => !value)}
+          className="menu-toggle"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          {isDark ? 'Light Mode' : 'Dark Mode'}
+          <span aria-hidden="true">☰</span>
         </button>
+
+        <div
+          id="mobile-navigation"
+          className={`mobile-menu ${menuOpen ? 'open' : ''}`}
+          aria-hidden={!menuOpen}
+        >
+          <nav className="mobile-nav" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                className={`nav-button ${activePage === item.key ? 'active' : ''}`}
+                onClick={() => changePage(item.key)}
+                tabIndex={menuOpen ? 0 : -1}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {activePage !== 'home' && (
+            <button
+              type="button"
+              className="theme-toggle mobile-theme-toggle"
+              onClick={() => setIsDark((value) => !value)}
+              tabIndex={menuOpen ? 0 : -1}
+            >
+              {isDark ? 'Light Mode' : 'Dark Mode'}
+            </button>
+          )}
+        </div>
       </header>
 
       {renderPage()}
