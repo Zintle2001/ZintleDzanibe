@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import aboutPhoto from './assets/graduation.jpg.jpeg'
 import profilePhoto from './assets/profile-photo.png'
@@ -7,6 +7,7 @@ import interestsPhoto from './assets/interests-photo.jpg'
 import interestsPhotoTwo from './assets/interests-photo-2.jpg'
 import interestsPhotoThree from './assets/interests-photo-3.jpg'
 import interestsPhotoFour from './assets/interests-photo-4.jpg'
+import fourIRPhoto from './assets/4IR.png'
 
 const skills = [
   'Data Science',
@@ -75,6 +76,27 @@ const experience = [
   },
 ]
 
+const projects = [
+  {
+    title: 'Student Health Mobile Application',
+    type: 'Mobile Application Development',
+    description: 'A student-focused mobile application designed to support health tracking, wellness awareness, and easier access to health-related resources.',
+    tools: 'JAVA • ANDROID • SQLITE • XML',
+  },
+  {
+    title: 'Information Systems Analysis',
+    type: 'Systems Analysis',
+    description: 'Comprehensive analysis of information systems, identifying bottlenecks and proposing high-tech solutions.',
+    tools: 'Requirements analysis, process modelling, documentation',
+  },
+  {
+    title: 'Database Management Solution',
+    type: 'Database and Software Development',
+    description: 'A structured solution for organising records, improving data accuracy, and making information easier to manage and retrieve.',
+    tools: 'SQL, database design, problem solving',
+  },
+]
+
 const stats = [
   { label: 'Honours degree', value: 'In progress' },
   { label: 'Languages', value: '3' },
@@ -130,874 +152,1314 @@ const trendReport = [
   {
     title: 'AI Security',
     paragraphs: [
-      'AI security is becoming one of the most important areas of modern technology because organisations are seeing more sophisticated cyber threats and more rapid attack cycles. Traditional security strategies are no longer enough when attackers use automation, AI-generated phishing, and advanced malware to exploit vulnerabilities at scale.',
-      'In South Africa, the demand for AI-driven security is growing because the country faces high levels of cybercrime and a shortage of skilled security specialists. Autonomous AI security tools can monitor networks, detect suspicious patterns, and automate response actions far faster than manual teams alone.',
-      'These systems help organisations move from reactive security to proactive defence, lowering risk and improving resilience across business operations.',
+      'Strengthens the industry\'s defences with proactive cybersecurity AI designed to predict attack paths and guide remediation before damage occurs. Autonomous security software can perform end-to-end cybersecurity tasks, including threat monitoring, incident response, and vulnerability patching, with minimal human intervention (TrendAI, 2026).',
+      'Unlike traditional security software, which relies on static rules, or simple AI copilots that only summarise alerts, security agents can reason, plan multi-step actions, query databases, and execute remediation workflows dynamically. As technology evolves and adversaries become more sophisticated, businesses need security that can respond at the same speed.',
+      'Cybersecurity protects information used for online banking, big data processing, healthcare, and business operations, but cyberattacks continue to grow in power and frequency. Because human error remains a major reason cybersecurity fails, researchers are turning to AI to create stronger and more automated defences.',
+      'He et al. (2025) identify security and privacy risks across the full AI lifecycle, including data poisoning, backdoors, privacy leaks, prompt manipulation, and the theft of sensitive data or code. Defences require strict data filtering, privacy safeguards, tamper resistance, and specialised protections for foundation models. AI security is therefore not a once-off deployment task; it requires continuous protection from training through everyday use.',
+      'The research also classifies attacks and defences across training and inference. Training-stage risks include poisoning and backdoor attacks in centralised systems, as well as poisoning and privacy inference in federated or split learning. Inference-stage risks include model stealing, privacy inference, fault injection, adversarial attacks, jailbreaks, and prompt-based attacks. Effective security must address both stages.',
     ],
   },
   {
     title: 'AI Research Partners',
     paragraphs: [
-      'AI in 2026 is no longer only summarising information; it is actively participating in discovery. AI co-scientists can generate hypotheses, compare research, and assist scientists with experiments and decision-making.',
-      'The example of Co-Scientist shows how AI systems are being designed to act like research collaborators. They can search literature, reason across disciplines, and propose meaningful pathways for investigation, which is especially valuable in resource-constrained research environments.',
-      'For South Africa, this is important because local institutions are dealing with major challenges in health, agriculture, and energy, and AI can help research teams accelerate discovery without requiring massive resources.',
+      'AI in 2026 is no longer only summarising research papers; it is actively participating in discovery. These systems can generate hypotheses independently, control scientific experiments, and collaborate with human and AI research colleagues across industries.',
+      'Researchers face a breadth-and-depth challenge: scientific topics require increasingly specialised expertise, while important insights may come from connecting knowledge across disciplines. AI systems can reason across complex fields, process multiple types of information, and use tools to solve long-term problems.',
+      'Co-Scientist is a structured scientific thinking engine designed to collaborate with researchers. It is a compound, multi-agent system built on a large language model and designed to mirror the reasoning process behind the scientific method. Given a research goal in natural language, it can search literature, synthesise previous work, propose hypotheses, and suggest experimental protocols (Gottweis et al., 2026).',
+      'Co-Scientist grounds recommendations by citing relevant literature, applying scientific reasoning, and verifying conclusions through external tools where appropriate. This makes it useful not only for producing answers, but also for identifying gaps, ranking hypotheses, analysing real-time data, and helping researchers explore many directions at once.',
+      'In my view, AI research partners can support researchers beyond the natural sciences. They can help students and professionals analyse evidence, find useful papers, and develop stronger research questions while keeping human judgement responsible for the final interpretation.',
     ],
   },
   {
     title: 'Generative AI',
     paragraphs: [
-      'Generative AI is already transforming how people work, learn, and solve problems. It is not only a tool for content creation; it is also being used to simplify technical tasks, support engineering workflows, and improve productivity across many industries.',
-      'For example, tools such as ChatGPT and industrial AI assistants can help people understand software, generate code, and support decision-making, making it easier for students and professionals to learn new systems quickly.',
-      'This trend matters because it turns complex tasks into more manageable workflows, while also creating new opportunities for innovation and skills development.',
+      'Generative AI is transforming everyday office work and can bring similar benefits to many industries by deepening domain expertise and supporting AI assistants across design, implementation, optimisation, and operations.',
+      'In manufacturing, automation design is dynamic and diverse, but it also includes repetitive activities such as clicking through screens, writing similar code, and executing routine tasks. Industrial engineering assistants are beginning to apply generative AI directly to these workflows so engineers can spend more time on problem-solving.',
+      'Tools such as ChatGPT have shown engineers how powerful AI can be, while industrial tools are making that capability more practical in automation and engineering environments. The main value is not simply generating content; it is integrating assistance into real work where domain knowledge and human review remain important.',
+      'Generative AI can also make difficult tasks simpler and help people brainstorm ideas quickly. A student using Visual Studio for the first time can ask an AI tool for clear steps, examples, and explanations. This makes technical learning more accessible, although outputs still need to be checked for accuracy, security, and quality.',
+      'Over time, people may depend more heavily on generative systems. Responsible use therefore requires critical thinking, verification, and continued development of human technical skills rather than replacing them entirely.',
     ],
   },
   {
     title: 'Digital Twin Composer',
     paragraphs: [
-      'The Digital Twin Composer introduces a virtual representation of physical systems that can be monitored, simulated, and optimised in real time. By combining CAD models, sensor data, engineering designs, and AI-driven analysis, digital twins can help organisations predict failures before they happen.',
-      'This is especially relevant in industries such as mining, manufacturing, utilities, and energy. In South Africa, digital twin technology can help improve safety, reduce equipment downtime, and support smarter infrastructure planning.',
-      'The value comes from unifying multiple data sources into one interactive environment, allowing teams to test ideas and decisions virtually before applying them in the real world.',
+      'The Digital Twin Composer delivers a vision for the industrial metaverse. It helps manufacturers manage complexity, accelerate production, reduce costs, improve resilience, and increase profitability by creating virtual representations of products, processes, and factories.',
+      'Bhatia et al. (2025) examine how digital twin technology can represent a fusion power plant using NVIDIA Omniverse. The digital twin combines engineering designs, simulations, real-time sensor data, and AI models to support monitoring, prediction, testing, and decision-making.',
+      'Digital twins can identify anomalies and potential design problems and allow corrective actions to be tested virtually before they are applied to the real plant. However, interoperability and technical challenges remain when different software and computing environments must work together.',
+      'By combining engineering models, simulations, sensor data, and AI, organisations can better understand complex physical systems and test decisions virtually. This is relevant to mining, manufacturing, utilities, energy, and infrastructure in South Africa because it can improve safety, reduce downtime, and support smarter planning.',
+      'Digital twins are powerful tools for helping businesses save time and deliver products more quickly, but demonstrations such as a fusion-power-plant model should not be treated as evidence that commercial fusion plants are already being produced through digital twins. Their value depends on reliable data, suitable models, and successful integration between systems.',
     ],
   },
   {
     title: 'Credo AI',
     paragraphs: [
-      'Credo AI is a responsible AI governance platform designed to help organisations manage fairness, privacy, transparency, and compliance in AI systems. It is becoming essential in environments where AI adoption is growing faster than clear governance structures.',
-      'In South Africa, this is particularly important because emerging AI regulations, such as the Draft National AI Policy and POPIA requirements, increase the need for accountability and ethical decision-making. Governance tools help ensure that AI systems are deployed in a way that respects legal and social responsibilities.',
-      'The core idea is that AI should not only be powerful, but also trustworthy, explainable, and aligned with organisational and regulatory expectations.',
+      'Credo AI is a responsible AI governance platform that helps organisations assess, monitor, and document risks in AI systems. It focuses on fairness, security, privacy, transparency, and performance and provides standardised assessments, reports, and policy packs based on laws, regulations, standards, and organisational policies (OECD.AI, 2026).',
+      'The platform addresses the problem of AI governance being time-consuming and inconsistent by helping development teams meet governance and compliance requirements while reducing manual work. This is increasingly important as AI adoption grows faster than many organisations\' governance structures.',
+      'Radke et al. (2023) examine how agents with different preferences can cooperate in multi-agent reinforcement learning. Their work introduces the idea of a credo, which describes how agents balance their interests, their teams, and the wider system. Different preferences do not always prevent cooperation and can sometimes produce greater overall reward and equality.',
+      'Fox et al. describe credo as a set of propositions about decision-making, formalised computationally through software and knowledge-engineering tools. This connects AI governance with a longer history of decision science, autonomous agents, and multi-agent systems.',
+      'In South Africa, responsible AI governance is particularly important because emerging national policy and POPIA requirements increase the need for accountability and ethical decision-making. AI should not only be powerful; it should also be trustworthy, explainable, secure, and aligned with legal and social responsibilities.',
     ],
+  },
+]
+
+const southAfricaTrendReport = [
+  {
+    title: '2.1. Autonomous AI Security: Defending High-Value Targets',
+    paragraphs: [
+      'South Africa is one of the most targeted countries on the continent for cybercrime, experiencing ransomware, Business Email Compromise, and AI-generated phishing attacks (Gilbert, 2025).',
+      'Traditional audit-driven security strategies are struggling against AI-accelerated attack cycles. Autonomous AI security agents can help local organisations shift from reactive patching to proactive, continuous threat monitoring and contain incidents more quickly (Davison, 2026).',
+      'A regional cybersecurity skills shortage also means that South African operations can use autonomous agents to augment understaffed security operations centres (Lebele, 2026).',
+    ],
+  },
+  {
+    title: '2.2. AI Research Partners: Accelerating Local Scientific Discovery',
+    paragraphs: [
+      'South African research institutions, including the CSIR and universities, work on complex challenges in healthcare, agriculture, and sustainable energy transition (IMARC Group, 2026).',
+      'AI co-scientists can act as force multipliers for resource-constrained research teams by generating hypotheses, cross-referencing global literature with regional data, and suggesting experimental protocols. This can help local researchers connect specialised expertise with global scientific breakthroughs without requiring massive capital expenditure.',
+    ],
+  },
+  {
+    title: '2.3. Industrial Generative AI: Augmenting the Workforce',
+    paragraphs: [
+      'South Africa\'s mining, automotive, and logistics sectors face operational friction, high costs, and an ongoing need to upskill technical staff.',
+      'Tools such as Siemens\' Eigen Engineering Agent bring generative AI into real engineering workflows. For local manufacturing sites, generative AI can reduce time spent on repetitive coding and programmable logic controller setup, allowing technicians and junior engineers to focus on problem-solving and rapid prototyping.',
+    ],
+  },
+  {
+    title: '2.4. Digital Twin Composers: Heavy Industry and Resource Efficiency',
+    paragraphs: [
+      'The South African digital twin market is expanding across mining, energy, and smart utility management. Digital twins built on platforms such as NVIDIA Omniverse are moving into high-stakes operational environments.',
+      'In mining, partnerships involving the CSIR, the Mandela Mining Precinct, and the Minerals Council South Africa have produced AI-driven Trackless Mobile Machinery digital twins to model vehicle risks and help prevent underground collisions.',
+      'Utilities and municipalities can use digital twins to simulate supply and demand, monitor equipment health remotely, and perform predictive maintenance to minimise costly downtime.',
+    ],
+  },
+  {
+    title: '2.5. Responsible AI Governance: Navigating POPIA and National Policy',
+    paragraphs: [
+      'The South African Department of Communications and Digital Technologies has published a Draft National AI Policy that establishes expectations around AI ethics, algorithmic bias, and accountability (Coelho et al., 2026).',
+      'Platforms such as Credo AI are becoming operational infrastructure rather than optional corporate additions. Organisations must mitigate imported bias by checking whether models trained on Global North datasets produce discriminatory outcomes in local demographic contexts and under the Employment Equity Act.',
+      'Governance platforms can also provide standardised policy packs and compliance tracking across POPIA, emerging sector-specific AI rules, and King V corporate governance recommendations.',
+    ],
+  },
+]
+
+const criticalTrendReport = [
+  {
+    title: 'AI Security',
+    paragraphs: [
+      'Abbas et al. (2019) describe the early development of AI security, its evolution, and the growth of research collaboration, particularly between the United States and China. This work provides useful historical context for understanding how AI became central to modern security discussions.',
+    ],
+  },
+  {
+    title: 'AI Agents and Scientific Discovery',
+    paragraphs: [
+      'Gottweis et al. (2026) present Co-Scientist as more than a productivity tool. It is described as a co-investigator that can generate hypotheses, reason through scientific methods, and support experimentally testable discovery. This is an important shift from plausible-sounding answers toward evidence-based research assistance.',
+    ],
+  },
+  {
+    title: 'Generative AI',
+    paragraphs: [
+      'Generative AI is a double-edged sword for businesses. It can increase profits through efficiency gains, but it also creates risks such as trade-secret leakage and unverified outputs. The literature includes editorial and conceptual work as well as practical examples, so claims about business impact should be interpreted with appropriate caution.',
+    ],
+  },
+  {
+    title: 'Digital Twin',
+    paragraphs: [
+      'Bhatia et al. (2025) show how NVIDIA Omniverse can integrate CAD models, simulation data, material properties, real-time visualisation, Python scripting, and generative AI for a fusion-power-plant digital twin. The key contribution is the integrated workflow that unifies previously siloed tools rather than a single new algorithm.',
+    ],
+  },
+  {
+    title: 'Credo AI',
+    paragraphs: [
+      'Radke et al. (2023) show how agents with partially different interests can cooperate in multi-agent learning. Their findings have implications for fleets of autonomous agents from different vendors that must cooperate without being fully aligned. Fox\'s decision-engineering framework adds a longer history of cognitive, logical, and computational principles for decision support.',
+    ],
+  },
+]
+
+const trendReferences = [
+  'Abbas, N. N., Ahmed, T., Shah, S. H. U., Omar, M., & Park, H. W. (2019). Investigating the applications of artificial intelligence in cyber security. Scientometrics, 121(2), 1189-1211. https://doi.org/10.1007/s11192-019-03222-9',
+  'Bhatia, N., Costa, R., Pamela, S. J. P., Davis, A., Gonzalez Beltran, A. N., Gopakumar, V., Zanisi, L., de Witt, S., & Akers, R. (2025). Visualizing digital twins of fusion power plants using NVIDIA Omniverse. AIP Advances, 15(4), Article 045018. https://doi.org/10.1063/5.0261883',
+  'Coelho, R., Ramages, J., Brink, A., & Chivaura, T. (2026). South Africa: Draft National Artificial Intelligence Policy published for public comment. Bowmans.',
+  'Davison, A. (2026). Is SA\'s cybersecurity lagging AI adoption? IT-Online.',
+  'Fox, J. (2014). A credo for decision science and engineering. University of Oxford, Department of Engineering Science.',
+  'Gilbert, P. (2025). AI-enabled cybersecurity lowers South African data breach costs. Connecting Africa.',
+  'Gottweis, J., et al. (2026). Accelerating scientific discovery with Co-Scientist. Nature, 655(8122), 487-496. https://doi.org/10.1038/s41586-026-10644-y',
+  'Lebele, K. (2026). AI is raising South Africa\'s cybersecurity stakes. SA Instrumentation & Control.',
+  'Nah, F. F.-H., Zheng, R., Cai, J., Siau, K., & Chen, L. (2023). Generative AI and ChatGPT: Applications, challenges, and AI-human collaboration. Journal of Information Technology Case and Application Research, 25(3), 277-304. https://doi.org/10.1080/15228053.2023.2233814',
+  'OECD.AI. (2026). Credo AI Responsible AI Governance Platform. OECD.AI Policy Observatory.',
+  'Radke, D., Larson, K., & Brecht, T. (2023). The importance of credo in multiagent learning. Proceedings of AAMAS 2023. https://arxiv.org/abs/2204.07471',
+  'Siemens. (2026). How generative AI is transforming automation engineering.',
+  'Siemens. (2026). Introducing Digital Twin Composer.',
+  'Trend Micro Incorporated. (2026). AI security | TrendAI.',
+]
+
+const darkSideReport = [
+  {
+    title: '1. Overview',
+    subsections: [
+      {
+        title: '1. Autonomous AI Security: The "Over-Eager Guard Dog"',
+        paragraphs: [
+          'Allowing autonomous AI security agents wide latitude to edit code, restrict access, and perform remediation can relieve the burden on IT and cybersecurity teams. However, as these systems become more autonomous, they introduce new vulnerabilities. Unlike conventional rule-based security mechanisms, AI agents can understand and reason about natural-language information. This creates scope for their behaviour to be exploited or for genuine information to be misinterpreted (Kanjere, 2024).',
+        ],
+      },
+      {
+        title: 'Vulnerability to Indirect Instructions',
+        paragraphs: [
+          'AI agents may use data from emails, documents, user input, or system logs to guide decision-making. An agent might interpret malicious instructions hidden within these sources as legitimate rather than untrusted information. This creates the risk of indirect prompt injection, in which seemingly innocuous content influences an agent\'s behaviour and causes actions not intended by the organisation (Wells, 2026).',
+          'The concern is not only about an attacker directly compromising the AI agent. The agent\'s ability to understand natural-language information becomes another attack vector.',
+        ],
+      },
+      {
+        title: 'Autonomous Errors and Operational Disruption',
+        paragraphs: [
+          'Autonomous security agents can mistake legitimate activity for malicious activity. An unusual but legitimate administrative action might be seen as a security threat. If an AI agent has broad privileges and operates autonomously, an erroneous decision could prevent valid users from accessing systems or disrupt vital services (Stellar Cyber, 2026).',
+          'This is the problem of the "over-eager guard dog": a security system intended to protect an organisation can itself become a source of disruption if it overreacts without sufficient human verification.',
+        ],
+      },
+      {
+        title: '2. Generative AI: The Danger of Unverified Outputs',
+        paragraphs: [
+          'Generative AI is increasingly used for software development, technical decision-making, and organisational and industrial processes. As AI-generated outputs become integrated into these systems, the risks increase when users accept them without adequate verification.',
+        ],
+      },
+      {
+        title: 'Hallucinated Software Dependencies',
+        paragraphs: [
+          'Generative AI tools may cite software libraries or packages that do not exist. If developers do not verify the authenticity and provenance of dependencies, organisations may face software supply-chain risks. Malicious actors could register packages with names similar to those generated by AI and use them to distribute malicious code (The Cyber Archive, 2026). An AI hallucination can therefore become a broader security concern when recommendations are applied directly to production environments.',
+        ],
+      },
+      {
+        title: 'Reduced Human Verification and Technical Understanding',
+        paragraphs: [
+          'Reliance on Generative AI can create human-centred risks when developers produce complex code without properly understanding or reviewing it. Organisations may become dependent on outputs that employees are not equipped to assess, support, or troubleshoot.',
+          'This is especially important when junior developers use AI-generated solutions without developing awareness of the underlying technologies. AI should augment human technical knowledge, critical thinking, code review, and problem-solving rather than replace them.',
+        ],
+      },
+      {
+        title: '3. AI Governance: The Risk of a False Sense of Security',
+        paragraphs: [
+          'AI governance platforms such as Credo AI can organise governance requirements, assess AI-related risks, and document compliance activities. However, these tools are not a complete replacement for continuous technical monitoring and operational risk management (Credo AI, 2026).',
+        ],
+      },
+      {
+        title: 'Compliance Does Not Necessarily Equal Operational Security',
+        paragraphs: [
+          'An organisation may meet documented governance requirements and appear compliant while its AI systems behave unpredictably or pose emerging security risks after deployment. Governance assessments show that controls and procedures exist, but they must form part of a broader lifecycle approach that includes ongoing monitoring, testing, and review.',
+          'Compliance as a one-off activity can provide a false sense of security. Organisations must consider how AI systems behave in real-world environments and how their risks evolve (Malesci, 2026).',
+        ],
+      },
+      {
+        title: 'The Importance of Local Context',
+        paragraphs: [
+          'AI governance frameworks and assessment tools may need to be adapted for different regulatory and socio-economic environments. Assessments based on general international standards might not consider particular country legislation and local conditions.',
+          'In South Africa, organisations need to consider requirements including POPIA and the Employment Equity Act. An AI system that performs well under a general governance framework may require further evaluation to determine whether it is suitable for the South African legal, demographic, and socio-economic context (Malesci, 2026).',
+        ],
+      },
+      {
+        title: 'Overall Critical Insight',
+        paragraphs: [
+          'These three areas show that AI-related risks go beyond the technical capabilities of the technologies themselves. Autonomous AI may result in erroneous or manipulated decisions; Generative AI may produce unreliable outputs that become embedded in software and organisational processes; and governance platforms can fail when compliance is used as a substitute for continuous risk management.',
+          'Successful AI adoption therefore requires human expertise, ongoing oversight, independent verification, and governance that takes the operating environment into account.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '2. Negative Application',
+    subsections: [
+      {
+        title: 'Weaponisation of Emerging AI Technologies',
+        paragraphs: [
+          'The capabilities of autonomous AI, Generative AI, and AI governance platforms create opportunities for legitimate organisations, but malicious actors can also exploit them. As these technologies become integrated into security operations, software development, and organisational decision-making, they may increase the scale, speed, and sophistication of cyberattacks. AI should therefore be viewed not only as a defensive capability but also as a potential attack surface (Sarsekar & Mirzan, 2026).',
+        ],
+      },
+      {
+        title: '1. Weaponisation of Autonomous AI Security',
+        paragraphs: [
+          'Autonomous AI security systems improve threat detection, monitoring, and incident response. However, the ability to operate continuously and make decisions with limited human intervention may create opportunities for malicious exploitation.',
+          'Agentic AI could help attackers discover vulnerabilities, adjust attack strategies, and generate malicious content. This could reduce the expertise required for some attacks while increasing their speed and scale (Sarsekar & Mirzan, 2026).',
+          'Indirect prompt injection could also be used against defensive AI systems. Malicious content introduced through emails, documents, or other data could affect how a security agent interprets an event. If the agent has broad operational privileges, manipulation could result in improper security actions.',
+          'The more autonomy and authority a defensive AI system has, the greater the consequences if it is manipulated or makes an incorrect decision.',
+        ],
+      },
+      {
+        title: '2. Malicious Exploitation of Generative AI',
+        paragraphs: [
+          'Generative AI can lower barriers to cybercrime by making it easier to produce convincing content, automate repetitive activities, and assist with technical tasks. This creates risks for individuals and organisations (Credo AI, 2026).',
+          'AI coding assistants may generate incorrect, unreliable, or nonexistent dependencies. If developers do not independently check packages and sources, malicious actors could create packages resembling commonly suggested dependencies. An AI-generated error could therefore become a security vulnerability in organisational software (Kosinski & Forrest, 2024).',
+          'Generative AI may also make phishing and social engineering more effective by producing convincing, contextually appropriate communications in different languages. These risks show that the threat extends beyond the technology itself and can strengthen existing forms of cybercrime.',
+        ],
+      },
+      {
+        title: '3. Misuse of AI Governance and Compliance Mechanisms',
+        paragraphs: [
+          'AI governance platforms are intended to improve accountability, risk assessment, documentation, and compliance. However, they can be misused when compliance is treated as an end in itself rather than as part of broader risk management.',
+          'An organisation could engage in ethics-washing by presenting evidence of governance processes while failing to address risks in the actual operation of an AI system. This is the difference between showing that governance procedures exist and showing that they manage real-world risks effectively (Credo AI, 2026).',
+          'Overly complex governance requirements could also create barriers to competition. Strong governance is necessary, but regulation should promote accountability without unnecessarily restricting innovation or placing disproportionate burdens on smaller organisations.',
+        ],
+      },
+      {
+        title: 'Overall Implication',
+        paragraphs: [
+          'The growing adoption of AI creates a dual-use environment. The same abilities that allow organisations to automate security, software development, and governance can also be used by malicious parties or misused by the organisation itself.',
+          'Risk management must consider not only whether AI systems can protect themselves from external attacks, but also how AI autonomy, generated outputs, and governance mechanisms might become sources of danger. This reinforces the importance of monitoring, proper access, verification of AI outputs, security checks, and human supervision of decisions.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '3. Global Perspective',
+    subsections: [
+      {
+        title: 'Global Developments and Emerging Challenges',
+        paragraphs: [
+          'Looking beyond South Africa, the global environment is characterised by interconnected geopolitical, environmental, public health, and technological developments. These demonstrate how technological, social, and environmental challenges influence one another.',
+        ],
+      },
+      {
+        title: '1. Escalating Geopolitical Conflicts and Security Challenges',
+        paragraphs: [
+          'Russia-Ukraine War: The United Nations Security Council held an emergency briefing after a surge in missile and drone strikes on civilian infrastructure in Ukraine. UN monitors reported a large surge in civilian casualties in mid-2026, while over 10.8 million Ukrainians were identified as requiring immediate humanitarian assistance (UN News, 2026).',
+          'Middle East Crisis: In Gaza, UN agencies reported that approximately 94% of the population, around 2.1 million people, requires urgent shelter and humanitarian assistance. Humanitarian operations and ceasefire arrangements remain fragile amid continuing military activity and insecurity (Global Issues, 2026).',
+          'Sudan and the Horn of Africa: Sudan continues to experience armed conflict, food insecurity, famine, and large-scale displacement. The situation has prompted international warnings about worsening humanitarian conditions and the need for increased assistance (UN News, 2026).',
+        ],
+      },
+      {
+        title: '2. Environmental and Climate Disruption',
+        paragraphs: [
+          'Changing global weather patterns and climate change continue to pose major environmental and socio-economic challenges. The World Meteorological Organisation has expressed concern about changing ocean temperatures and the possible impact of El Nino and Indian Ocean climate patterns on extreme weather.',
+          'These trends could lead to more frequent heatwaves, droughts, floods, and other disruptions, affecting food security, infrastructure, public health, economic activity, and access to essential services (World Meteorological Organisation, 2026).',
+        ],
+      },
+      {
+        title: '3. Emerging Global Public Health Challenges',
+        paragraphs: [
+          'Ebola in Central Africa: The Democratic Republic of the Congo continues to face Ebola-related public health challenges requiring vaccination, disease surveillance, and humanitarian assistance. Funding limitations continue to affect effective outbreak containment (Global Issues, 2026).',
+          'Mpox and Children\'s Health: Public health authorities in parts of West Africa have reported significant numbers of children among newly identified mpox cases. This creates additional challenges for surveillance, diagnosis, treatment, vaccination, and public health communication.',
+        ],
+      },
+      {
+        title: '4. Technological Acceleration and Governance',
+        paragraphs: [
+          'Technological development, particularly the rapid integration of AI, is occurring alongside geopolitical, environmental, and public health challenges. International organisations are exploring AI applications for public services, environmental monitoring, healthcare, and humanitarian activities, including methane detection and medical diagnosis in resource-constrained environments.',
+          'The availability of AI-generated content also creates governance and security concerns. International organisations are developing initiatives to protect individuals and civil society from deepfakes, online harassment, automated disinformation, and other digital manipulation (Global Issues, 2026).',
+        ],
+      },
+      {
+        title: 'Overall Global Implication',
+        paragraphs: [
+          'Technological advancement cannot be considered in isolation from broader global challenges. Geopolitical conflict, climate disruption, public health emergencies, and technological change are increasingly interconnected.',
+          'AI can support responses to these challenges, but misuse can intensify existing vulnerabilities. Effective governance requires understanding the broader global environment in which technologies are developed and deployed.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '4. South African Perspective and Implications for South Africa',
+    subsections: [
+      {
+        title: 'Context',
+        paragraphs: [
+          'Autonomous, generative, and governing AI are particularly important in South Africa because they intersect with cybersecurity issues, a growing digital economy, regulation, and socio-economic differences. These technologies can increase productivity and service delivery, but implementation can create additional vulnerabilities without adequate technical and governance protections.',
+        ],
+      },
+      {
+        title: '1. AI Security Vulnerabilities in Critical Infrastructure',
+        paragraphs: [
+          'South African organisations face ransomware, business email compromise, and other cybercrime. Autonomous AI security tools could assist with threat detection and response, especially where specialised cybersecurity skills are scarce.',
+          'However, agents with extensive privileges and inadequate runtime controls, monitoring, and human oversight may be manipulated through indirect prompt injection. A compromised or misbehaving agent could affect municipal information systems, financial infrastructure, and other critical services.',
+        ],
+      },
+      {
+        title: '2. Generative AI, Phishing, and Software Supply-Chain Risks',
+        paragraphs: [
+          'The use of Generative AI in South African enterprises, especially finance and software development, raises new security concerns. Developers may include insecure or unreliable dependencies when they do not verify AI-generated suggestions. Fictional libraries can create a supply-chain threat if bad actors register similarly named packages.',
+          'Generative AI can also improve phishing and social engineering by enabling realistic messages. In South Africa\'s multilingual environment, local-language content may make malicious communications harder to distinguish from legitimate messages (Institute of Risk Management South Africa, 2025).',
+        ],
+      },
+      {
+        title: '3. AI Governance, POPIA, and Contextual Bias',
+        paragraphs: [
+          'AI adoption creates regulatory questions for South African organisations. POPIA requires organisations to consider how personal data is collected, processed, and protected.',
+          'Meeting general governance requirements does not prove that an AI system is appropriate for the South African context. International frameworks may not address local socio-economic conditions, demographic characteristics, or sector-specific needs, creating the possibility of context-based bias.',
+          'AI governance cannot therefore be reduced to generic compliance dashboards or instruments based only on international standards.',
+        ],
+      },
+      {
+        title: 'Overall Implication',
+        paragraphs: [
+          'South Africa\'s use of AI requires a balance between technological innovation and risk management. Autonomous AI can help mitigate resource limitations and improve efficiency, while Generative AI can support software development. These advantages may not be realised without cybersecurity, verification, governance, and ongoing monitoring.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '5. Critical Analysis',
+    subsections: [
+      {
+        title: 'Introduction',
+        paragraphs: [
+          'AI Governance, AI Security, and Generative AI contribute to efficiency and innovation, but rapid adoption also exposes organisations to critical failure modes, operational risks, and systemic vulnerabilities.',
+        ],
+      },
+      {
+        title: '1. The Dark Side of AI Governance',
+        paragraphs: [
+          'Platforms such as Credo AI can map system processes to regulations and frameworks including the EU AI Act, NIST AI RMF, and POPIA. However, relying solely on structured platforms can create weaknesses.',
+        ],
+      },
+      {
+        title: 'Static "Compliance Theatre" versus Dynamic Failure',
+        paragraphs: [
+          'The AI Risk Repository Meta-Review (2024) indicates that risks can emerge after deployment through complex, non-linear interactions rather than only through problems identified in pre-deployment assessments.',
+          'Governance platforms can evaluate policies, controls, and requirements, but may not continuously enforce emerging agent behaviour. An organisation can pass compliance assessments while remaining exposed to active technical threats.',
+        ],
+      },
+      {
+        title: 'Centralisation Risks and Governance Gaps',
+        paragraphs: [
+          'Research published by the National Conference of State Legislatures (NCSL, 2024) highlights concerns about overreliance on centralised policy frameworks and automated risk reporting. If governance is not adapted to prompt injection, data drift, and other dynamic threats, an organisation may fall into "paperwork compliance" and focus more on documentation than resilience.',
+          'This demonstrates the gap between static governance and dynamic operational threats. Compliance shows that policies and controls exist, while resilient governance requires evidence that controls continue to work under real conditions. Autonomous systems require continuous monitoring, runtime enforcement, anomaly detection, and mechanisms to address prompt injection and data drift.',
+        ],
+      },
+      {
+        title: '2. The Dark Side of AI Security',
+        paragraphs: [
+          'Modern AI security is moving from static rules to autonomous systems that monitor threats, reason about events, and execute remediation. This can improve speed and scale, but granting agents operational authority creates risks from external attacks and autonomous decision-making.',
+        ],
+      },
+      {
+        title: 'Indirect Prompt Injection and Memory Poisoning',
+        paragraphs: [
+          'He et al. (2025) emphasise the susceptibility of AI and multi-agent systems to prompt injection during inference. Malicious commands can be hidden in logs, emails, or user content. When a security agent processes that data, its reasoning and decisions may be influenced by instructions embedded in the data, blurring the distinction between information to analyse and commands to follow.',
+        ],
+      },
+      {
+        title: 'The "Confused Deputy" and Self-Inflicted Disruption',
+        paragraphs: [
+          'An AI security agent may identify a legitimate operation as malicious and trigger remediation that interferes with normal operations. Because security agents may have elevated permissions, an incorrect decision could affect access to applications, databases, and other systems. Excessive automation can turn a defensive function into an operational disruptor.',
+        ],
+      },
+      {
+        title: '3. The Dark Side of Generative AI',
+        paragraphs: [
+          'Generative AI now supports software development, automation, and complex workflow orchestration. Although these capabilities improve productivity, integrating AI outputs into software and automated processes creates supply-chain and systemic risks.',
+        ],
+      },
+      {
+        title: 'Package Hallucinations and Supply-Chain Attacks',
+        paragraphs: [
+          'IDC (2024) identifies package hallucination as a growing software supply-chain threat. Generative AI may reference packages that do not exist. Developers may search for these packages and encounter malicious ones with similar or identical names, allowing an AI coding error to become an entry point for malware.',
+        ],
+      },
+      {
+        title: 'Systemic Hallucination Amplification',
+        paragraphs: [
+          'IBM Research (2023) highlights risks in multi-agent systems where one AI component\'s output becomes another component\'s input. An inaccurate result can move through subsequent stages and be treated as fact without triggering syntax or system-level warnings.',
+          'AI errors can therefore become embedded in dependencies or propagated through workflows, transforming isolated inaccuracies into organisational vulnerabilities. Organisations need human verification, dependency validation, provenance controls, and continuous monitoring when Generative AI is used in critical environments.',
+        ],
+      },
+    ],
+  },
+]
+
+const darkSideConclusion = [
+  'The IT environment in 2026 will be influenced by autonomous and agentic AI solutions capable of performing functions independently, making decisions, and interacting with other systems. While these solutions offer advantages, increased autonomy also entails additional technological risks. The main issue is not AI adoption itself, but the consequences for system safety without proper monitoring, control, and supervision.',
+  'Three issues arise from the discussion. First, AI governance may be overly static, assessing policies and risks without continuous monitoring of system performance. Second, autonomous security agents may create additional threats because of elevated privileges, indirect prompt injection, and incorrect or manipulated decisions. Finally, integrating Generative AI into software development creates risks from hallucinated packages and incorrect outputs propagating through interconnected systems.',
+  'For developing countries including South Africa, where AI adoption can improve operations and access to the digital world, a balanced strategy is necessary. Organisations should move beyond governance checklists and technology adoption toward adaptive AI risk management, with runtime monitoring, frequent security testing and red-teaming, verification of AI-generated outputs, and human involvement in high-stakes decisions.',
+  'AI autonomy does not mean that systems can replace humans. Systems should operate in controlled environments where their actions can be monitored, questioned, and overridden when necessary.',
+]
+
+const darkSideReferences = [
+  'African Union Development Agency. (2022). Impact of Russia-Ukraine conflict on African food systems. AUDA-NEPAD. Retrieved August 25, 2026, from https://www.nepad.org/microsite/impact-of-russia-ukraine-conflict-african-food-systems',
+  'Credo AI. (n.d.). AI risk. Credo AI Glossary. Retrieved August 25, 2026, from https://www.credo.ai/glossary/ai-risk',
+  'The Cyber Archive. (2026, April 22). 7 AI agent security attacks researchers proved work in 2025-2026. Medium. https://medium.com/@thecyberarchive/7-ai-agent-security-attacks-researchers-proved-work-in-2025-2026-bd17cd9b020f',
+  'Hooshidary, S., Canada, C., & Clark, W. (2024, November 22). Artificial intelligence in government: The federal and state landscape. National Conference of State Legislatures. https://www.ncsl.org/technology-and-communication/artificial-intelligence-in-government-the-federal-and-state-landscape',
+  'Institute of Risk Management South Africa. (2025, May 29). Generative AI: A threat or an opportunity? Assessing the potential impact within the South African context. IRMSA. https://www.irmsa.org.za/communications/generative-ai-threat-or-opportunity-assessing-potential-impact-within-south-african',
+  'Kosinski, M., & Forrest, A. (2024, March 26). What is a prompt injection attack? IBM. https://www.ibm.com/think/topics/prompt-injection',
+  'Malesci, U. (2026, July 16). Credo AI vs Holistic AI (2026): AI governance compared - and where Kosmoy fits. Kosmoy. https://www.kosmoy.com/resources/blog/credo-ai-vs-holistic-ai/',
+  'Sarsekar, P., & Mirzan, S. R. (n.d.). Prompt injection. OWASP Foundation. Retrieved August 25, 2026, from https://owasp.org/www-community/attacks/PromptInjection',
+  'Slattery, P., Saeri, A. K., Grundy, E. A. C., Graham, J., Noetel, M., Uuk, R., Dao, J., Pour, S., Casper, S., & Thompson, N. (2024). The AI risk repository: A comprehensive meta-review, database, and taxonomy of risks from artificial intelligence. MIT FutureTech. https://airisk.mit.edu',
+  'Stellar Cyber. (2026, March 17). Top agentic AI security threats in late 2026. https://stellarcyber.ai/learn/agentic-ai-securiry-threats/',
+  'Tozzi, C. (2024, April 22). Package hallucination: The latest, greatest software supply chain security threat? IDC. https://www.idc.com/resource-center/blog/package-hallucination-the-latest-greatest-software-supply-chain-security-threat/',
+  'UN News. (2026, August 24). Security Council LIVE: Civilian suffering grows in Russia-Ukraine war. United Nations. https://news.un.org/en/story/2026/08/1168191',
+  'Wells, J. (2026, April 6). 7 AI agent failure modes and how to prevent them in production. Galileo. https://galileo.ai/blog/agent-failure-modes-guide',
+  'World Meteorological Organization. (2026, July 31). Strong El Nino expected to intensify [Press release]. https://wmo.int/news/media-centre/strong-el-nino-expected-intensify',
+]
+
+const southAfricaIRReport = [
+  {
+    title: '1. Introduction',
+    paragraphs: [
+      'According to Manda and Ben Dhaou (2019), the Fourth Industrial Revolution (4IR) refers to the convergence of digital, physical, and biological technologies, robotics, cyber-physical systems, artificial intelligence, big data, the Internet of Things, and advanced manufacturing into a rapidly advancing wave of technological change. The still-developing Fifth Industrial Revolution (5IR), which emphasises human-machine cooperation, resilience, and sustainability, is presented as a counterbalance to 4IR\'s technology-first orientation.',
+      'The Presidential Commission on the Fourth Industrial Revolution (PC4IR), according to South Africa\'s policy language, envisions smart, connected, and converged cyber, physical, and biological systems transforming social, economic, and political life (DCDT, 2020). Global value chains, mining, manufacturing, and public administration are already being reorganised around AI-enabled systems, so South Africa cannot ignore these revolutions.',
+      'This essay challenges the assumptions in South Africa\'s 4IR narrative: that adopting global technology rhetoric creates the capacity to profit from it, and that a market-led digital transition will distribute gains widely rather than to those who already possess capital, skills, and connectivity. South Africa can benefit from 4IR and 5IR, but its history of policy implementation gaps, corruption, state capture, and extractive economic structures makes scepticism more reasonable than optimism about whether those benefits will be distributed fairly without sustained political intervention.',
+    ],
+  },
+  {
+    title: '2. South Africa\'s Current Position',
+    subsections: [
+      {
+        title: '2.1. A regional leader, a global laggard - and a narrower base than headline figures suggest',
+        paragraphs: [
+          'The digital economy is expected to grow from 8-10% of GDP in 2020 to 15-20% by 2025, and over 75% of households have some internet access, making South Africa one of Africa\'s most advanced digital economies (International Trade Administration, 2026). E-commerce sales reached approximately R71 billion in 2023. However, South Africa lags behind China, Russia, and India on BRICS competitiveness measures related to 4IR readiness (Manda & Ben Dhaou, 2019).',
+          'Aggregate statistics hide distribution. The fact that 75% of households have internet access says nothing about quality, cost, or dependability. South Africa also has some of the highest mobile data prices in Africa, suggesting that many households use low-bandwidth, data-capped connections unsuitable for AI-driven and data-intensive 4IR services.',
+        ],
+      },
+      {
+        title: '2.2. AI, automation and IoT: real but narrow',
+        paragraphs: [
+          'A 2026 PwC and Minerals Council of South Africa study reports that mining companies use AI for geological analysis, safety monitoring, and predictive maintenance. Leaders framed AI as an enabler of human capability rather than a labour replacement (PwC and Minerals Council of South Africa, 2026). However, the study was based on structured interviews with mining CEOs and line management rather than employees whose jobs are most vulnerable to automation.',
+          'The claim that AI is not viewed as a replacement for people is an executive perception rather than a labour-market outcome. It sits awkwardly beside evidence cited by Sutherland (2020) that each additional industrial robot per thousand workers can reduce employment and wages. A study that surveys those who commission and deploy technology is structurally likely to describe it favourably.',
+        ],
+      },
+      {
+        title: '2.3. Digital infrastructure: investment without delivery',
+        paragraphs: [
+          'SA Connect aims to provide universal broadband by 2030, while the government has invested in data centres and fibre infrastructure (International Trade Administration, 2026). Manda and Ben Dhaou (2019) note that ICT infrastructure quality has remained low despite historically high spending, limiting e-government effectiveness.',
+          'SA Connect\'s implementation history is instructive: budget constraints reduced its first phase from an initial scope of 6,135 locations to 970, an approximately 84% shortfall. This reflects a recurring pattern in South African 4IR policy in which ambitious targets are announced, missed milestones are followed by new announcements, and delivery is not adequately reckoned with.',
+        ],
+      },
+      {
+        title: '2.4. Skills: the binding constraint',
+        paragraphs: [
+          'Manda and Ben Dhaou (2019) describe a workforce in which only 24% of workers are skilled and approximately 30% are unskilled, alongside a failing foundational education system. Sutherland (2020) argues that the education system cannot generate enough STEM graduates, while the International Trade Administration (2026) identifies a severe cybersecurity skills shortage.',
+          'Government strategy documents list digital skills development and human-capital investment as pillars. This can understate the problem by presenting a foundational education failure rooted in exclusion and inadequate basic education as one workstream among several equal priorities.',
+        ],
+      },
+      {
+        title: '2.5. Policy direction: abundant strategy, thin implementation',
+        paragraphs: [
+          'The PC4IR Report, Digital Economy Masterplan, National e-Government Strategy, SA Connect, and Industrial Development Strategy 2026 are detailed policy instruments intended to address deindustrialisation, slow growth, declining industrial capacity, weak investment, and infrastructure backlogs (DCDT, 2020).',
+          'The 2026 industrial strategy begins by identifying deindustrialisation and declining industrial capacity as problems, implicitly acknowledging that prior digital-transformation and industrial policies have not prevented decline. Across sources, the consistent finding is that South Africa\'s constraint is delivery rather than design. This should temper optimism that the latest strategy will behave differently from its predecessors.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '3. The Case For 4IR and 5IR and Its Limits',
+    subsections: [
+      {
+        title: '3.1. Economic development, innovation and competitiveness',
+        paragraphs: [
+          'South Africa\'s fintech, start-up, and research ecosystems, including the CSIR and Technology Innovation Agency, provide a legitimate but limited foundation for diversification beyond mining and low-value manufacturing (Manda & Ben Dhaou, 2019; International Trade Administration, 2026).',
+          'Sutherland (2020) argues that 4IR rhetoric is a Davos-originated, elite, and neoliberal narrative that signals investment readiness to multinational capital. The estimated R134 billion in pledged investment is a real achievement, but it says more about signalling to global capital than about whether ordinary South Africans will share in resulting growth. The economic case is real, but it is also partly a story told to investors rather than a plan built for citizens.',
+        ],
+      },
+      {
+        title: '3.2. Healthcare',
+        paragraphs: [
+          'Telemedicine, remote monitoring, and AI-assisted diagnosis could serve underprivileged rural populations (International Trade Administration, 2026). However, these applications depend on uneven connectivity and electricity reliability. Without prioritising public health infrastructure first, AI-assisted healthcare could widen the gap between well-served urban facilities and underserved communities.',
+        ],
+      },
+      {
+        title: '3.3. Agriculture and mining',
+        paragraphs: [
+          'IoT-enabled precision farming and AI for mining safety and predictive maintenance offer real opportunities. Yet both industries are capital-intensive and relatively well-capitalised. Adoption may increase productivity for current owners rather than create large numbers of jobs. Mining automation is expected to increase demand for highly educated workers while reducing demand for unskilled labour, which conflicts with South Africa\'s current skills profile (Sutherland, 2020).',
+        ],
+      },
+      {
+        title: '3.4. Government',
+        paragraphs: [
+          'Online tax filing, digital identities, and integrated case management could improve access and reduce exposure to corruption outside urban areas (International Trade Administration, 2026; Manda & Ben Dhaou, 2019). But digitisation is not automatically anti-corruption: it can digitise procurement dysfunction and patronage. Governance reform is therefore a prerequisite for 4IR technology to function effectively rather than a problem technology will solve by itself.',
+        ],
+      },
+      {
+        title: '3.5. The 5IR framing: aspiration ahead of institutional reality',
+        paragraphs: [
+          'The argument that technology alone will not transform mining, and that people, culture, and disciplined execution matter, is essentially a 5IR argument. However, South Africa has consistently struggled with the institutional coordination capacity required for a human-centred and sustainable orientation. Without retraining budgets, worker consultation, and long-term sustainability commitments, 5IR language risks becoming a more appealing human-centred gloss on the same technology-adoption agenda.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '4. The Case Against / Risks Deepened',
+    subsections: [
+      {
+        title: '4.1. Job displacement in an already jobless economy',
+        paragraphs: [
+          'South Africa\'s unemployment rate has remained between 26% and 30% for many years. Automation primarily affects low- and semi-skilled workers (Manda & Ben Dhaou, 2019). Sutherland (2020) warns that automation and mass customisation could undermine the labour-intensive, export-led path that lifted Asian tiger economies out of poverty.',
+          'Optimistic 4IR employment narratives often rely on economies with reskilling programmes, social safety nets, and labour-market mobility. South Africa does not consistently meet these conditions, so importing an OECD-derived jobs narrative into this labour market is a category error with tangible consequences.',
+        ],
+      },
+      {
+        title: '4.2. The digital divide',
+        paragraphs: [
+          'Rural areas continue to face high data costs and lag behind urban areas in broadband, mobile coverage, and speed (International Trade Administration, 2026). The digital divide is not a new technology-specific problem; it is a recent manifestation of older spatial and racial inequality rooted in apartheid-era planning and the minerals-energy economy.',
+          'Because the divide is embedded in land, housing, and labour-market geography, it cannot be addressed solely through broadband rollout targets. Infrastructure matters, but it must be combined with broader social and economic reform.',
+        ],
+      },
+      {
+        title: '4.3. Skills shortages',
+        paragraphs: [
+          'Poor foundational mathematics and science results restrict STEM entry, while cybersecurity and AI-specific professional capacity remain scarce (Manda & Ben Dhaou, 2019; International Trade Administration, 2026). A strategy focused only on data scientists and AI engineers targets the top of a pyramid when basic literacy and numeracy are the real constraint.',
+          'Small, well-funded boot camps, university partnerships, and corporate academies can create success stories that conceal the reality that most school dropouts cannot access any 4IR-relevant pathway.',
+        ],
+      },
+      {
+        title: '4.4. Infrastructure fragility and governance failure',
+        paragraphs: [
+          'Load-shedding threatens technology integration, while spectrum-allocation delays slow 4G and 5G rollout (International Trade Administration, 2026). These problems are connected to state capture and poor management of state-owned businesses (Sutherland, 2020). Electricity capacity, SOE governance, and procurement integrity are not issues that digital-economy policy can solve on its own.',
+          'A digital transformation strategy is built on a foundation it does not control if energy-sector and SOE governance reform are treated as parallel workstreams rather than prerequisites.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '5. Critical Analysis: Interrogating the 4IR Narrative Itself',
+    subsections: [
+      {
+        title: '5.1. The rhetoric-implementation gap as a structural feature',
+        paragraphs: [
+          'Across academic and institutional sources, the same pattern recurs: ambitious policy framing followed by documented implementation shortfalls. Sutherland (2020) argues that 4IR terminology signals to foreign capital independently of domestic delivery, making it politically easier to announce strategies than to fund and coordinate their execution.',
+          'A critical reading should therefore treat each strategy document as a data point in a longer pattern and ask what has changed institutionally, including budget authority, coordination, and accountability, rather than only what has changed rhetorically.',
+        ],
+      },
+      {
+        title: '5.2. Whose interests are centred in the 4IR narrative',
+        paragraphs: [
+          'Sutherland (2020) characterises 4IR partly as a corporate repositioning exercise amplified by World Economic Forum lobbying. The focus on foreign direct investment, a gateway-to-Africa position, and investment readiness indicates whose support the strategy seeks. Workers, organised labour, and historically disadvantaged communities are often discussed as risks to be managed rather than as the primary constituency to be served.',
+        ],
+      },
+      {
+        title: '5.3. Structural dependency: leapfrogging rhetoric versus extractive continuity',
+        paragraphs: [
+          'Manda and Ben Dhaou (2019) cite the belief that 4IR can help developing countries leapfrog stages of development. Sutherland (2020) challenges this optimism by tracing South Africa\'s history through a colonial and apartheid-era minerals-energy complex in which cheap labour and raw materials were supplied while capital, technology, and finished-goods production remained elsewhere.',
+          'South Africa may be a technology taker rather than a technology producer, relying on US and Chinese ecosystems and vendors. Quick adoption of imported systems is not the same as building domestic capability in semiconductor design, platform ownership, or AI research infrastructure. Value created by domestic businesses and employees is more likely to be distributed locally than profits repatriated by foreign platform owners.',
+        ],
+      },
+      {
+        title: '5.4. Evidentiary limits: who is being asked, and who is answering',
+        paragraphs: [
+          'The optimistic claims in this paper should be read critically. The PwC/Minerals Council study draws on management focus groups and interviews with mining CEOs rather than miners or workers at risk of displacement. Government strategy documents were created by organisations whose delivery records are under scrutiny, while the International Trade Administration guide is designed to assist US business interests in South Africa.',
+          'The more critical evidence comes from independent academic analysis, while more optimistic evidence comes from government departments, industry associations, and professional services firms with an interest in a positive 4IR narrative. Sources should therefore be weighed rather than treated as equally neutral.',
+        ],
+      },
+      {
+        title: '5.5. The equity paradox in a market-led digital strategy',
+        paragraphs: [
+          'Rapid market-driven digital growth and inclusive, redistributive outcomes are often paired in policy documents without resolving their tension. Without clear redistributive mechanisms, such as taxing digital profits, requiring local participation, or linking incentives to skills transfer, a strategy cannot maximise market-led growth and guarantee equitable distribution at the same time.',
+          'The absence of an operational mechanism for managing this trade-off is one of the largest discrepancies between South Africa\'s equity commitments and its 4IR aspirations.',
+        ],
+      },
+      {
+        title: '5.6. Governance capacity as the ultimate constraint',
+        paragraphs: [
+          'Every technical and economic argument about infrastructure, skills, investment, and jobs depends on the state\'s ability to plan, finance, coordinate, and implement policy over many years. Corruption in rail and electricity utilities, weak scrutiny of infrastructure laws, and delays in data-protection implementation show that governance capacity is central to the 4IR question.',
+          'Technology-specific interventions such as AI institutes, digital-skills academies, and broadband targets will underperform if implemented through the same institutional machinery whose weaknesses are already known. The most effective intervention for an inclusive transition may therefore be broader public-sector governance and anti-corruption reform rather than another 4IR-specific policy.',
+        ],
+      },
+    ],
+  },
+  {
+    title: '6. Synthesis: Conditions for an Inclusive Transition',
+    paragraphs: [
+      'Viewed critically rather than descriptively, the evidence supports a more cautious position than the technology-optimist narrative in South African policy discourse. Manda and Ben Dhaou\'s (2019) socio-technical framework is useful: technology and society coevolve, and the social system of skills, institutions, trust, and governance determines the effects of a technical system.',
+      'South Africa\'s technical preparedness for 4IR is real but incomplete, while institutional and social preparedness is further behind. The risk of growing inequality is concentrated in that gap.',
+      'An inclusive transition should prioritise foundational skills before advanced technology; invest in digital literacy, basic numeracy, affordable access, electricity reliability, and cybersecurity; strengthen governance and anti-corruption institutions; require local participation and skills transfer; and build worker-centred and environmentally sustainable production models.',
+    ],
+  },
+  {
+    title: '7. Conclusion',
+    paragraphs: [
+      'South Africa is in an uncomfortable middle position regarding 4IR and 5IR: it has real strengths in policy ambition, research institutions, fintech innovation, and sector-specific technology adoption, but also consequential weaknesses in foundational skills, digital access, infrastructure reliability, governance capacity, and clear mechanisms to ensure that gains are distributed rather than concentrated.',
+      'A critical analysis indicates that South Africa\'s commitment to using 4IR and 5IR for inclusive growth is not currently matched by the institutional means to deliver it. Without a significant shift in implementation discipline and governance capacity, rather than additional strategy documents, the more likely result is a digital transition that exacerbates rather than resolves existing disparities.',
+    ],
+  },
+]
+
+const southAfricaIRReferences = [
+  {
+    citation: 'Balkaran, S. (n.d.). The Fourth Industrial Revolution - Its impact on the South African public sector. Walter Sisulu University.',
+  },
+  {
+    citation: 'Department of Communications and Digital Technologies (DCDT). (2020). 4IR Project Management Office.',
+    url: 'https://www.dcdt.gov.za/4ir-pmo.html',
+  },
+  {
+    citation: 'International Trade Administration. (2026). South Africa - Digital economy. U.S. Department of Commerce.',
+    url: 'https://www.trade.gov/country-commercial-guides/south-africa-digital-economy',
+  },
+  {
+    citation: 'Manda, M. I., & Ben Dhaou, S. (2019). Responding to the challenges and opportunities in the 4th Industrial Revolution in developing countries. Proceedings of the 12th International Conference on Theory and Practice of Electronic Governance (ICEGOV2019), Melbourne, Australia.',
+  },
+  {
+    citation: 'PwC & Minerals Council of South Africa. (2026). Ten insights into 4IR in South African mining 2026.',
+    url: 'https://www.pwc.co.za/en/press-room/ten-insights-into-4ir.html',
+  },
+  {
+    citation: 'Sutherland, E. (2020). The Fourth Industrial Revolution - The case of South Africa. Politikon: South African Journal of Political Studies, 47(2), 233-252.',
+  },
+  {
+    citation: 'the dtic (Department of Trade, Industry and Competition). (2026). South Africa\'s Industrial Development Strategy 2026.',
+    url: 'https://www.thedtic.gov.za/south-africas-industrial-development-strategy-2026/',
   },
 ]
 
 function App() {
   const [isDark, setIsDark] = useState(true)
-  const [activeDetailPage, setActiveDetailPage] = useState(null)
+  const [activePage, setActivePage] = useState('home')
 
-  useEffect(() => {
-    const syncDetailPageFromHash = () => {
-      const hash = window.location.hash
-      const isTrendsPage = hash === '#trends'
-      const isDarkSidePage = hash === '#dark-side'
-      const isFourthIndustrialPage = hash === '#fourth-industrial-revolution'
+  const changePage = (page) => {
+    setActivePage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 
-      if (isTrendsPage) {
-        setActiveDetailPage('trends')
-      } else if (isDarkSidePage) {
-        setActiveDetailPage('dark-side')
-      } else if (isFourthIndustrialPage) {
-        setActiveDetailPage('fourth-industrial-revolution')
-      } else {
-        setActiveDetailPage(null)
-      }
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname)
     }
-
-    syncDetailPageFromHash()
-    window.addEventListener('hashchange', syncDetailPageFromHash)
-
-    return () => window.removeEventListener('hashchange', syncDetailPageFromHash)
-  }, [])
-
-  const handleDetailPage = (page) => {
-    setActiveDetailPage(page)
   }
 
-  const closeDetailPage = () => {
-    setActiveDetailPage(null)
-  }
+  const navItems = [
+    { key: 'home', label: 'Home' },
+    { key: 'about', label: 'About Me' },
+    { key: 'portfolio', label: 'Portfolio' },
+    { key: 'interests', label: 'Interests' },
+    { key: 'trends', label: 'IT Trends' },
+    { key: 'dark-side', label: 'Dark Side' },
+    { key: 'fourir', label: '4IR' },
+    { key: 'sa-ir', label: '4IR and 5IR in SA' },
+    { key: 'contact', label: 'Contact' },
+  ]
 
-  return (
-    <div className={`portfolio-page ${isDark ? 'theme-dark' : 'theme-light'}`}>
-      <header className="topbar">
-        <div className="brand">Zintle</div>
+  const renderHomePage = () => (
+    <main>
+      <section className="hero section" id="home">
+        <div className="hero-copy">
+          <h1>Hi, I’m Zintle Zinyanga.</h1>
+          <p className="lead">
+            A highly motivated Information Systems graduate with a strong foundation in data science,
+            analytics, systems analysis, and software development. I use technology and data to solve
+            problems, improve processes, and drive informed decision-making.
+          </p>
 
-        <nav className="nav" aria-label="Main navigation">
-          <a href="#home" onClick={() => setActiveDetailPage(null)}>Home</a>
-          <a href="#about" onClick={() => setActiveDetailPage(null)}>About Me</a>
-          <a href="#portfolio" onClick={() => setActiveDetailPage(null)}>Portfolio</a>
-          <a href="#interests" onClick={() => setActiveDetailPage(null)}>Interests</a>
-          <a href="#trends" onClick={() => setActiveDetailPage(null)}>IT Trends</a>
-          <a href="#dark-side" onClick={() => setActiveDetailPage(null)}>Dark Side</a>
-          <a href="#fourth-industrial-revolution" onClick={() => setActiveDetailPage(null)}>4IR</a>
-          <a href="#contact" onClick={() => setActiveDetailPage(null)}>Contact</a>
-        </nav>
+          <div className="hero-actions">
+            <button
+              type="button"
+              className="primary-btn"
+              onClick={() => changePage('portfolio')}
+            >
+              View Portfolio
+            </button>
+          </div>
 
-        <button
-          type="button"
-          className="theme-toggle"
-          onClick={() => setIsDark((value) => !value)}
-        >
-          {isDark ? 'Light Mode' : 'Dark Mode'}
-        </button>
-      </header>
+        </div>
 
-      <main>
-        <section className="hero section" id="home">
-          <div className="hero-copy">
-            <h1>Hi, I’m Zintle Zinyanga.</h1>
-            <p className="lead">
-              A highly motivated Information Systems graduate with a strong foundation in data science,
-              analytics, systems analysis, and software development. I use technology and data to solve
-              problems, improve processes, and drive informed decision-making.
+        <div className="hero-image-wrap" aria-label="Profile photo">
+          <img className="hero-image" src={profilePhoto} alt="Zintle Zinyanga" />
+        </div>
+      </section>
+    </main>
+  )
+
+  const renderAboutPage = () => (
+    <main>
+      <section className="section page-view" id="about">
+        <div className="section-heading">
+          <h2>About Me</h2>
+        </div>
+
+        <div className="about-grid">
+          <div>
+            <p>
+              I am a highly motivated and results-driven Information Systems graduate with a strong foundation
+              in data science, data analytics, systems analysis, and software development.
             </p>
+            <p>
+              My academic journey at the University of KwaZulu-Natal has given me practical grounding in
+              information systems, database management, and analytical thinking.
+            </p>
+            <p>
+              I am passionate about using technology, data science, and information systems expertise to solve
+              real-world problems and add organisational value.
+            </p>
+            <p>
+              My strengths include analytical thinking, problem solving, communication, attention to detail,
+              and the ability to learn new technologies quickly. I am particularly interested in work that
+              connects people, processes, data, and technology to improve how organisations operate.
+            </p>
+            <p>
+              I approach professional development as a continuous process. My academic work, workplace
+              exposure, volunteering, and personal interests have helped me build discipline, resilience,
+              confidence, and a practical understanding of how technology can create meaningful value.
+            </p>
+          </div>
+          <img className="about-photo" src={aboutPhoto} alt="Personal development and spiritual growth" />
+        </div>
+      </section>
+    </main>
+  )
 
-            <div className="hero-actions">
-              <a className="primary-btn" href="#portfolio">
-                Downloadable CV
-              </a>
-              <a className="primary-btn" href="#trends" onClick={() => setActiveDetailPage(null)}>
-                View IT Trends
-              </a>
+  const renderPortfolioPage = () => (
+    <main>
+      <section className="section page-view" id="portfolio">
+        <div className="section-heading">
+          <h2>Portfolio</h2>
+        </div>
+
+        <div className="portfolio-stack">
+          <section className="portfolio-subsection">
+            <div className="section-heading">
+              <p className="eyebrow">Education</p>
+              <h2>Academic background.</h2>
             </div>
-          </div>
 
-          <div className="hero-image-wrap" aria-label="Profile photo">
-            <img className="hero-image" src={profilePhoto} alt="Zintle Zinyanga" />
-          </div>
-        </section>
-
-        <section className={`section about ${activeDetailPage ? 'hidden-section' : ''}`} id="about">
-          <div className="section-heading">
-            <h2>About Me</h2>
-          </div>
-
-          <div className="about-grid">
-            <div>
-              <p>
-                I am a highly motivated and results-driven Information Systems graduate with a strong foundation
-                in data science, data analytics, systems analysis, and software development. My academic journey
-                at the University of KwaZulu-Natal has given me practical grounding in information systems,
-                database management, and analytical thinking.
-              </p>
-              <p>
-                I am passionate about using technology, data science, and information systems expertise to solve
-                real-world problems and add organisational value. I work effectively both independently and in teams,
-                manage structured workflows, and deliver accurate work even under deadline pressure.
-              </p>
-              <p>
-                Beyond my professional and academic pursuits, I am dedicated to personal development through
-                literature and spiritual growth. I find significant value in the works of Robert Kiyosaki, which
-                have refined my perspective on financial literacy and strategic foresight. Furthermore, my active
-                participation in my faith community provides a foundation of resilience and ethical guidance,
-                fostering a consistent commitment to professional and personal excellence.
-              </p>
-            </div>
-            <img className="about-photo" src={aboutPhoto} alt="Personal development and spiritual growth" />
-          </div>
-        </section>
-
-        <section className={`section portfolio ${activeDetailPage ? 'hidden-section' : ''}`} id="portfolio">
-          <div className="section-heading">
-            <h2>Portfolio</h2>
-          </div>
-
-          <div className="portfolio-stack">
-            <section className="portfolio-subsection" id="education">
-              <div className="section-heading">
-                <p className="eyebrow">Education</p>
-                <h2>Academic background.</h2>
-              </div>
-
-              <div className="education-layout">
-                <div className="timeline">
-                  {education.map((item) => (
-                    <div key={item.program} className="timeline-item">
-                      <span className="time-period">{item.period}</span>
-                      <div>
-                        <h3>{item.program}</h3>
-                        <p className="company">{item.institution}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <img className="education-photo" src={educationPhoto} alt="Education and academic growth" />
-              </div>
-            </section>
-
-            <section className="portfolio-subsection" id="experience">
-              <div className="section-heading">
-                <p className="eyebrow">Experience and Project</p>
-                <h2>Experience</h2>
-              </div>
-
+            <div className="education-layout">
               <div className="timeline">
-                {experience.map((item) => (
-                  <div key={item.role} className="timeline-item">
+                {education.map((item) => (
+                  <div key={item.program} className="timeline-item">
                     <span className="time-period">{item.period}</span>
                     <div>
-                      <h3>{item.role}</h3>
-                      <p className="company">{item.company}</p>
-                      <ul className="bullet-list">
-                        {item.details.map((detail) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
+                      <h3>{item.program}</h3>
+                      <p className="company">{item.institution}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </section>
+              <img className="education-photo" src={educationPhoto} alt="Education and academic growth" />
+            </div>
+          </section>
 
-            <section className="portfolio-subsection" id="skills">
-              <div className="section-heading">
-                <p className="eyebrow">Skills</p>
-                <h2>Core strengths and technical capabilities.</h2>
-              </div>
+          <section className="portfolio-subsection">
+            <div className="section-heading">
+              <p className="eyebrow">Experience and Project</p>
+              <h2>Experience</h2>
+            </div>
 
-              <div className="skills-grid">
-                {skills.map((skill) => (
-                  <span key={skill} className="skill-pill">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </section>
-          </div>
-        </section>
-
-        <section className={`section interests ${activeDetailPage ? 'hidden-section' : ''}`} id="interests">
-          <div className="section-heading">
-            <p className="eyebrow">Interests</p>
-            <h2>Things that inspire me beyond the classroom and workplace.</h2>
-          </div>
-
-          <div className="interests-content">
-            <div className="interests-grid">
-              {interests.map((interest) => (
-                <div key={interest.title} className="interest-card">
-                  <h3>{interest.title}</h3>
-                  <p>{interest.description}</p>
+            <div className="timeline">
+              {experience.map((item) => (
+                <div key={item.role} className="timeline-item">
+                  <span className="time-period">{item.period}</span>
+                  <div>
+                    <h3>{item.role}</h3>
+                    <p className="company">{item.company}</p>
+                    <ul className="bullet-list">
+                      {item.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="interests-photos">
-              <img
-                className="interests-photo"
-                src={interestsPhoto}
-                alt="Personal interests"
-              />
-              <img
-                className="interests-photo"
-                src={interestsPhotoTwo}
-                alt="Personal interests"
-              />
-              <img
-                className="interests-photo"
-                src={interestsPhotoThree}
-                alt="Personal interests"
-              />
-              <img
-                className="interests-photo"
-                src={interestsPhotoFour}
-                alt="Personal interests"
-              />
+          </section>
+
+          <section className="portfolio-subsection">
+            <div className="section-heading">
+              <p className="eyebrow">Projects</p>
             </div>
-          </div>
-          <div className="motto-card">
-            <p className="eyebrow">My Personal Motto</p>
-            <blockquote>
-              “Success comes through continuous learning, perseverance, and embracing new challenges.”
-            </blockquote>
-          </div>
-        </section>
 
-        <section className={`section trends ${activeDetailPage && activeDetailPage !== 'trends' ? 'hidden-section' : ''}`} id="trends">
-          <div className="section-heading">
-            <p className="eyebrow">IT Trends</p>
-            <h2>Top 5 IT Trends</h2>
-          </div>
+            <div className="projects-grid">
+              {projects.map((project) => (
+                <article key={project.title} className="project-card">
+                  <p className="project-type">{project.type}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <p className="project-tools"><strong>Focus:</strong> {project.tools}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-          <div className="trend-report">
-            <article className="trend-report-item">
-              <h3>Introduction</h3>
-              <p>
-                When we talk about “hot trends in IT,” we are not just talking about temporary hype or the latest industry buzzwords. We are looking at major technological shifts that are solving real-world problems, attracting serious investment, and changing how businesses operate (Abbas et al., 2019; Gottweis et al., 2026). The five trends covered in this report—AI Security, AI Research Partners, Generative AI in Industry, Digital Twin Composers, and AI Governance platforms such as Credo AI—were chosen because they tackle urgent problems, address real pain points that organisations face today, and move beyond passive automation into active reasoning, real-time simulation, and more complex decision-making.
-              </p>
-              <p>
-                Looking at the current IT landscape, we are sitting at a clear turning point. We have moved past the days of standalone software that relies on constant human input. Instead, the focus has shifted towards autonomous AI agents, multi-agent systems, and real-time virtual environments that can reason, adapt, and work alongside us (Nah et al., 2023; Bhatia et al., 2025). The purpose of this discussion is to map how these key trends are driving this shift, mitigating modern risks, and shaping what comes next.
-              </p>
-            </article>
+          <section className="portfolio-subsection">
+            <div className="section-heading">
+              <p className="eyebrow">Skills</p>
+              <h2>Core strengths and technical capabilities.</h2>
+            </div>
 
-            <article className="trend-report-item">
-              <h3>1. AI Security</h3>
-              <p>
-                AI security is becoming one of the most important areas of modern technology because organisations are seeing more sophisticated cyber threats and faster attack cycles. Traditional security strategies are no longer enough when attackers use automation, AI-generated phishing, and advanced malware to exploit vulnerabilities at scale (He et al., 2025; Trend Micro, 2026).
-              </p>
-              <p>
-                In South Africa, the demand for AI-driven security is growing because the country faces high volumes of cybercrime and a shortage of skilled security specialists. Autonomous AI security agents can monitor networks, detect suspicious patterns, and automate response actions far faster than manual teams alone (Davison, 2026; Lebele, 2026).
-              </p>
-              <p>
-                This matters because human error remains a major driver of security failures. By combining intelligent detection, contextual understanding, and faster remediation, AI security strengthens defensive capability while reducing response time and operational disruption (Abbas et al., 2019).
-              </p>
-            </article>
+            <div className="skills-grid">
+              {skills.map((skill) => (
+                <span key={skill} className="skill-pill">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  )
 
-            <article className="trend-report-item">
-              <h3>2. AI Research Partners</h3>
-              <p>
-                AI in 2026 is no longer only summarising research papers; it is actively participating in discovery. These intelligent systems generate hypotheses independently, collaborate with human researchers, and help teams explore multiple possible research directions at once (Gottweis et al., 2026).
-              </p>
-              <p>
-                The example of Co-Scientist shows how AI systems are being designed to act as research collaborators. They can search literature, reason across disciplines, and propose novel hypotheses and experimental protocols, which is especially valuable in resource-constrained research environments (Gottweis et al., 2026).
-              </p>
-              <p>
-                For South Africa, this is important because institutions are dealing with major challenges in healthcare, agriculture, and energy, and AI can help teams accelerate discovery without requiring massive capital expenditure (Coelho et al., 2026).
-              </p>
-            </article>
+  const renderInterestsPage = () => (
+    <main>
+      <section className="section page-view" id="interests">
+        <div className="section-heading">
+          <p className="eyebrow">Interests</p>
+          <h2>Things that inspire me beyond the classroom and workplace.</h2>
+        </div>
 
-            <article className="trend-report-item">
-              <h3>3. Generative AI</h3>
-              <p>
-                Generative AI is already transforming how people work, learn, and solve problems. It is not only used for content generation; it is also helping with software development, technical documentation, engineering design, and business process support (Nah et al., 2023).
-              </p>
-              <p>
-                Siemens’ work on Generative AI in industrial engineering shows how AI can reduce repetition, support automation workflows, and help engineers focus on more meaningful problem-solving (Siemens, 2026a). This makes the technology valuable across manufacturing, software development, and digital transformation initiatives.
-              </p>
-              <p>
-                In my opinion, Generative AI is also a way to make difficult tasks simpler and brainstorm ideas more quickly. For example, students and junior professionals can use AI tools to explain technical steps, generate learning pathways, and support practical problem-solving in a more accessible way (Nah et al., 2023).
-              </p>
-            </article>
-
-            <article className="trend-report-item">
-              <h3>4. Digital Twin Composer</h3>
-              <p>
-                The Digital Twin Composer delivers a vision for the industrial metaverse and helps manufacturers overcome complexity, accelerate production, reduce costs, and improve performance (Siemens, 2026b). Digital twins create virtual models of physical systems that can be monitored, simulated, and optimised in real time.
-              </p>
-              <p>
-                Bhatia et al. (2025) show how Digital Twin technology can be used to create a virtual representation of a fusion power plant using NVIDIA Omniverse. The Digital Twin combines engineering designs, simulations, real-time sensor data, and AI models to support monitoring, prediction, testing, and decision-making.
-              </p>
-              <p>
-                This is especially relevant in South Africa, where mining, utilities, logistics, and manufacturing require smarter operational planning. Digital twins can improve safety, reduce downtime, and support predictive maintenance while allowing organisations to test ideas virtually before implementing them in the real world (Bhatia et al., 2025).
-              </p>
-            </article>
-
-            <article className="trend-report-item">
-              <h3>5. Credo AI</h3>
-              <p>
-                Credo AI is a Responsible AI governance platform that helps organisations assess, monitor, and document the risks associated with their AI systems. It focuses on areas such as fairness, security, privacy, transparency, and performance (OECD.AI, 2026).
-              </p>
-              <p>
-                In South Africa, this is particularly important because emerging regulations, such as the Draft National AI Policy and POPIA, increase the need for accountability and ethical decision-making (Coelho et al., 2026). Governance platforms provide structured assessment tools that help organisations align AI adoption with legal, ethical, and operational requirements.
-              </p>
-              <p>
-                The key principle is that AI should not only be powerful, but also trustworthy, explainable, and aligned with organisational and regulatory expectations (Fox, 2014; Radke et al., 2023).
-              </p>
-            </article>
-
-            <article className="trend-report-item">
-              <h3>2. The impact these global IT trends have on South Africa</h3>
-              <p>
-                As global technology transitions into autonomous, agentic, and real-time operational models, South Africa finds itself at a unique intersection of rapid adoption, pressing infrastructure constraints, and evolving regulatory demands. While the country leads Africa in AI readiness and adoption, local enterprises still face structural realities such as energy instability, severe cybercrime exposure, and strict compliance requirements under POPIA and the 2026 Draft National AI Policy (Coelho et al., 2026; Davison, 2026).
-              </p>
-              <p>
-                The practical impact is clear: AI Security supports critical protection for organisations under cyber pressure; AI Research Partners accelerate local scientific discovery; Generative AI augments workforce productivity and engineering; Digital Twin Composer improves industrial efficiency and safety; and Credo AI helps organisations move toward responsible governance in a regulatory environment that continues to evolve (Lebele, 2026; OECD.AI, 2026).
-              </p>
-            </article>
-
-            <article className="trend-report-item">
-              <h3>3. Critical Analysis</h3>
-              <p>
-                These technologies mark the beginning and continuation of digital evolution. They are shaping humanity in ways many people are unaware of, and the major lesson is that organisations must adapt intentionally rather than passively (Abbas et al., 2019; Bhatia et al., 2025). The literature shows that AI and digital technologies are not merely productivity enhancers; they are strategic tools that influence cybersecurity, innovation, governance, and industrial transformation.
-              </p>
-              <p>
-                The strongest conclusion is that AI adoption is most effective when organisations combine technical capability with responsible governance, real-world verification, and human oversight. Without this balance, the same technologies that improve efficiency can also create new risks in security, compliance, and decision quality (Nah et al., 2023; OECD.AI, 2026).
-              </p>
-            </article>
+        <div className="interests-content">
+          <div className="interests-grid">
+            {interests.map((interest) => (
+              <div key={interest.title} className="interest-card">
+                <h3>{interest.title}</h3>
+                <p>{interest.description}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="references-block">
+          <div className="interests-photos">
+            <img className="interests-photo" src={interestsPhoto} alt="Personal interests" />
+            <img className="interests-photo" src={interestsPhotoTwo} alt="Personal interests" />
+            <img className="interests-photo" src={interestsPhotoThree} alt="Personal interests" />
+            <img className="interests-photo" src={interestsPhotoFour} alt="Personal interests" />
+          </div>
+
+          <div className="paper-block">
+            <h3>My Personal Motto</h3>
+            <p>
+              I believe that consistent effort, discipline, and a willingness to learn can turn difficult
+              goals into achievable progress. I try to carry this mindset into my studies, work, relationships,
+              and future career in technology.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+
+  const renderTrendsPage = () => (
+    <main>
+      <section className="section page-view" id="trends">
+        <div className="section-heading">
+          <p className="eyebrow">IT Trends</p>
+          <h2>Top 5 IT Trends</h2>
+        </div>
+
+        <div className="paper-block trend-introduction">
+          <h3>Introduction</h3>
+          <p>
+            When we talk about "hot trends in IT," we are not just talking about temporary hype or the latest
+            industry buzzwords. We are looking at major technological shifts that are solving real-world problems,
+            attracting serious investment, and changing how businesses operate. These are the tools and frameworks
+            that are moving the needle and setting new standards for how we secure, build, and scale digital systems.
+          </p>
+          <p>
+            The five trends covered in this report are AI Security, AI Research Partners, Generative AI in Industry,
+            Digital Twin Composers, and AI Governance platforms like Credo AI. They were chosen because they tackle
+            urgent problems, address real pain points that organisations face right now, and move beyond basic,
+            passive automation into active reasoning, real-time simulation, and complex problem-solving.
+          </p>
+          <p>
+            Their impact is not limited to a single role. They operate across cybersecurity, manufacturing,
+            scientific research, enterprise management, and many other areas. Looking at the current IT landscape,
+            we are at a clear turning point: the focus has shifted from standalone software that relies on constant
+            human input toward autonomous AI agents, multi-agent systems, and real-time virtual environments that
+            can reason, adapt, and work alongside us.
+          </p>
+          <p>
+            The goal of this discussion is to map out how these five key trends are driving that shift, mitigating
+            modern risks, and shaping what comes next.
+          </p>
+        </div>
+
+        <div className="section-heading trend-subheading">
+          <p className="eyebrow">Section 1</p>
+          <h2>IT Trends</h2>
+        </div>
+
+        <div className="trend-list">
+          {trendReport.map((trend) => (
+            <article key={trend.title} className="trend-card">
+              <h3>{trend.title}</h3>
+              {trend.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 18)}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
+
+        <div className="section-heading trend-subheading">
+          <p className="eyebrow">South African context</p>
+          <h2>The impact of global IT trends on South Africa</h2>
+        </div>
+
+        <div className="trend-list">
+          {southAfricaTrendReport.map((trend) => (
+            <article key={trend.title} className="trend-card">
+              <h3>{trend.title}</h3>
+              {trend.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 22)}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
+
+        <div className="section-heading trend-subheading">
+          <p className="eyebrow">Critical analysis</p>
+          <h2>Evaluating the opportunities and risks</h2>
+        </div>
+
+        <div className="trend-list">
+          {criticalTrendReport.map((trend) => (
+            <article key={trend.title} className="trend-card">
+              <h3>{trend.title}</h3>
+              {trend.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 22)}>{paragraph}</p>
+              ))}
+            </article>
+          ))}
+        </div>
+
+        <div className="paper-block">
+          <h3>Conclusion</h3>
+          <p>
+            These emerging AI technologies represent an important stage in the ongoing evolution of the digital
+            landscape. Their rapid development is influencing how individuals, organisations, and societies
+            operate, often in ways that may not yet be fully recognised.
+          </p>
+          <p>
+            The reviewed literature highlights both opportunities and challenges. These technologies can improve
+            organisational efficiency by automating tasks, reducing the time needed to complete processes, and
+            supporting higher-quality products and services.
+          </p>
+          <p>
+            However, dependence on AI also introduces security, governance, reliability, and ethical risks.
+            Continued digital evolution therefore requires more than adopting emerging technologies. It requires
+            individuals, organisations, and governments to understand their benefits and limitations and to pair
+            innovation with oversight, responsible use, and continuous adaptation.
+          </p>
+        </div>
+
+        <div className="references-block">
+          <h3>References</h3>
+          {trendReferences.map((reference) => (
+            <p key={reference}>{reference}</p>
+          ))}
+        </div>
+      </section>
+    </main>
+  )
+
+  const renderDarkSidePage = () => (
+    <main>
+      <section className="section page-view" id="dark-side">
+        <div className="section-heading">
+          <p className="eyebrow">Dark Side</p>
+          <h2>The Dark Side of Technology</h2>
+        </div>
+
+        <div className="paper-block dark-side-report">
+          {darkSideReport.map((section) => (
+            <div key={section.title} className="dark-side-section">
+              <h3>{section.title}</h3>
+              {section.subsections.map((subsection) => (
+                <div key={subsection.title} className="dark-side-subsection">
+                  <h4>{subsection.title}</h4>
+                  {subsection.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 28)}>{paragraph}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+
+          <div className="dark-side-section">
+            <h3>Conclusion</h3>
+            {darkSideConclusion.map((paragraph) => (
+              <p key={paragraph.slice(0, 28)}>{paragraph}</p>
+            ))}
+          </div>
+
+          <div className="references-block dark-side-references">
             <h3>References</h3>
-            <p>Abbas, N. N., Ahmed, T., Shah, S. H. U., Omar, M., &amp; Park, H. W. (2019). Investigating the applications of artificial intelligence in cyber security. Scientometrics, 121(2), 1189–1211. https://doi.org/10.1007/s11192-019-03222-9</p>
-            <p>Bhatia, N., Costa, R., Pamela, S. J. P., Davis, A., Gonzalez Beltran, A. N., Gopakumar, V., Zanisi, L., de Witt, S., &amp; Akers, R. (2025). Visualizing digital twins of fusion power plants using NVIDIA Omniverse. AIP Advances, 15(4), Article 045018. https://doi.org/10.1063/5.0261883</p>
-            <p>Coelho, R., Ramages, J., Brink, A., &amp; Chivaura, T. (2026, April 10). South Africa: Draft National Artificial Intelligence Policy published for public comment. Bowmans. https://bowmanslaw.com/insights/south-africa-draft-national-artificial-intelligence-policy-published-for-public-comment/</p>
-            <p>Davison, A. (2026, June 23). Is SA's cybersecurity lagging AI adoption? IT-Online. https://it-online.co.za/2026/06/23/is-sas-cybersecurity-lagging-ai-adoption/</p>
-            <p>Fox, J. (2014). A credo for decision science and engineering [Retrospective review]. University of Oxford, Department of Engineering Science.</p>
-            <p>Gottweis, J., Weng, W.-H., Daryin, A., Tu, T., Sirkovic, P., Myaskovsky, A., Glowaty, G., Weissenberger, F., Orlandi, A., Popovici, D., Palepu, A., Rong, K., Tanno, R., Saab, K., Zhang, F., Blum, J., Carroll, A., Kulkarni, K., Tomašev, N., … Natarajan, V. (2026). Accelerating scientific discovery with Co-Scientist. Nature, 655(8122), 487–496. https://doi.org/10.1038/s41586-026-10644-y</p>
-            <p>He, H., Wang, Q., &amp; Chen, Y. (2025). AI security and privacy: Threats, defences, and future directions. Journal of Secure AI Systems, 12(3), 89–116.</p>
-            <p>Lebele, K. (2026, August). AI is raising South Africa's cybersecurity stakes. SA Instrumentation &amp; Control. https://www.instrumentation.co.za/27921r</p>
-            <p>Nah, F. F.-H., Zheng, R., Cai, J., Siau, K., &amp; Chen, L. (2023). Generative AI and ChatGPT: Applications, challenges, and AI-human collaboration. Journal of Information Technology Case and Application Research, 25(3), 277–304. https://doi.org/10.1080/15228053.2023.2233814</p>
-            <p>OECD.AI. (2026). Credo AI Responsible AI Governance Platform. OECD.AI Policy Observatory. https://oecd.ai/en/catalogue/tools/credo-ai-responsible-ai-governance-platform</p>
-            <p>Radke, D., Larson, K., &amp; Brecht, T. (2023). The importance of credo in multiagent learning. In Proceedings of the 22nd International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2023). https://arxiv.org/abs/2204.07471</p>
-            <p>Siemens. (2026a, March). How generative AI is transforming automation engineering. https://www.siemens.com/en-us/company/insights/prism-systems-automation-engineering-ai/</p>
-            <p>Siemens. (2026b). Introducing Digital Twin Composer. https://www.siemens.com/en-us/company/digital-transformation/industrial-metaverse/introducing-digital-twin-composer/</p>
-            <p>Trend Micro Incorporated. (2026). AI security | TrendAI. https://www.trendaisecurity.com/en/platform/proactive-ai-security</p>
+            {darkSideReferences.map((reference) => {
+              const [citation, url] = reference.split(' https://')
+
+              return (
+                <p key={reference}>
+                  {citation}{' '}
+                  {url ? (
+                    <a href={`https://${url}`} target="_blank" rel="noreferrer">
+                      https://{url}
+                    </a>
+                  ) : null}
+                </p>
+              )
+            })}
           </div>
-        </section>
+        </div>
+      </section>
+    </main>
+  )
 
-        <section className={`section dark-side ${activeDetailPage && activeDetailPage !== 'dark-side' ? 'hidden-section' : ''}`} id="dark-side" aria-label="Dark side of technology">
-          <div className="dark-side-inner">
-            <p className="eyebrow">Dark side of technology</p>
-            <h2>The Dark Side of Technology</h2>
+  const renderFourIRPage = () => (
+    <main>
+      <section className="section page-view" id="fourth-industrial-revolution">
+        <div className="section-heading">
+          <p className="eyebrow">4IR</p>
+          <h2>From Industry 4.0 to Industry 5.0</h2>
+        </div>
 
-            <div className="dark-side-paper">
-              <div className="dark-side-overview" aria-label="Dark side overview categories">
-                <div className="overview-chip">
-                  <span className="chip-icon">🛡️</span>
-                  <span>AI SECURITY</span>
-                </div>
-                <div className="overview-chip">
-                  <span className="chip-icon">🤖</span>
-                  <span>GENERATIVE AI</span>
-                </div>
-                <div className="overview-chip">
-                  <span className="chip-icon">📘</span>
-                  <span>GOVERNANCE AI</span>
-                </div>
-              </div>
+        <div className="paper-intro">
+          <p>
+            <em>
+              Two overlapping technological eras, what each promises society, and why an Information Systems &amp;
+              Technology professional should hold both narratives at arm&apos;s length.
+            </em>
+          </p>
+        </div>
 
-              <div className="dark-side-intro">
-                <p>
-                  <strong>1. Overview</strong>
-                </p>
-                <button type="button" className="back-btn" onClick={closeDetailPage}>Back to profile</button>
-              </div>
+        <div className="paper-block">
+          <h3>Understanding the Fourth Industrial Revolution</h3>
+          <p>
+            The World Economic Forum&apos;s founder, Klaus Schwab, popularised the term &quot;Fourth Industrial
+            Revolution&quot; (4IR) to refer to a time when developments in robotics, artificial intelligence, the
+            Internet of Things, biotechnology, and big data are merging in ways that make it difficult to
+            distinguish between the digital, biological, and physical realms (Schwab, 2016).
+          </p>
+          <p>
+            In contrast to the Third Industrial Revolution, which brought computing and early digitisation, 4IR
+            is defined by the interconnection of machines, data, and living systems at a scale and speed that
+            its proponents claim is unprecedented. This includes devices that sense and act on the physical
+            world without direct human input, algorithms that make decisions previously made by humans, and
+            smart factories that reconfigure themselves in real time.
+          </p>
+          <p>
+            According to this theory, the compounding effect of multiple exponential technologies maturing
+            together is what sets 4IR apart from previous waves of automation, rather than a single invention.
+          </p>
+          <img className="fourir-image" src={fourIRPhoto} alt="Fourth Industrial Revolution technology" />
 
-              <div className="dark-side-section">
-                <h3>1. Autonomous AI Security: The "Over-Eager Guard Dog"</h3>
-                <p>
-                  Giving autonomous AI security agents extensive permissions to modify code, restrict access, and perform remediation can significantly reduce the workload of IT and cybersecurity teams. However, as these systems become more autonomous, they also introduce new vulnerabilities. Unlike conventional rule-based security mechanisms, AI agents can interpret and reason about natural-language information. This creates opportunities for their behaviour to be manipulated or for legitimate information to be misunderstood (Kanjere, 2024).
-                </p>
-                <h4>Vulnerability to Indirect Instructions</h4>
-                <p>
-                  AI agents may process information from emails, documents, user inputs, or system logs as part of their decision-making process. If malicious instructions are hidden within these sources, an agent may interpret them as legitimate instructions rather than treating them as untrusted information. This poses a risk of indirect prompt injection, in which seemingly ordinary content influences an agent's behaviour, causing it to perform actions not intended by the organisation (Wells, 2026).
-                </p>
-                <p>
-                  The concern is therefore not limited to an attacker directly compromising the AI agent. Instead, the agent's ability to interpret natural-language information becomes an additional attack surface that can potentially be exploited.
-                </p>
-                <h4>Autonomous Errors and Operational Disruption</h4>
-                <p>
-                  Autonomous security agents can also create problems when legitimate activity is incorrectly identified as malicious. For example, an unusual but authorised administrative action could be interpreted as a security threat. If the AI agent has extensive privileges and is authorised to respond automatically, an incorrect decision could prevent legitimate users from accessing systems or disrupt important services (Stellar Cyber, 2026).
-                </p>
-                <p>
-                  This reflects the potential “over-eager guard dog” problem. A security system designed to protect an organisation can itself become a source of disruption if it responds too aggressively without sufficient human verification.
-                </p>
-              </div>
+          <p>
+            <strong>Figure 1.</strong> 5IR is generally framed as a reorientation of 4IR technologies around
+            human, social, and environmental goals rather than a distinct technological rupture (Breque, De Nul,
+            and Petridis, 2021). Dates are approximate and contested.
+          </p>
 
-              <div className="dark-side-section">
-                <h3>2. Generative AI: The Danger of Unverified Outputs</h3>
-                <p>
-                  Generative AI is increasingly being used for more than producing text. It now supports software development, technical decision-making, and various organisational and industrial processes. As AI-generated outputs become more closely integrated into these systems, the risks increase when users accept them without adequate verification.
-                </p>
-                <h4>Hallucinated Software Dependencies</h4>
-                <p>
-                  Generative AI tools can sometimes produce references to software libraries or packages that do not actually exist. If developers implement these recommendations without verifying the authenticity and provenance of dependencies, organisations may be exposed to software supply chain risks. Malicious actors could potentially take advantage of this behaviour by registering packages with names similar to those commonly generated by AI and using them to distribute malicious code (The Cyber Archive, 2026). This shows how an AI hallucination can develop into a broader security problem when AI-generated recommendations are incorporated directly into production environments.
-                </p>
-                <h4>Reduced Human Verification and Technical Understanding</h4>
-                <p>
-                  Heavy reliance on Generative AI for software development can also create human-centred risks. When developers regularly use AI to generate complex code without fully understanding or reviewing it, organisations may become dependent on outputs that employees are unable to properly evaluate, maintain, or troubleshoot.
-                </p>
-                <p>
-                  This concern is particularly relevant when less-experienced developers use AI-generated solutions without developing a corresponding understanding of the underlying technologies. AI should therefore support, rather than replace, human technical knowledge, critical thinking, code review, and problem-solving.
-                </p>
-              </div>
+          <h3>The move toward Industry 5.0</h3>
+          <p>
+            In a 2021 policy paper, the Directorate-General for Research and Innovation of the European Commission
+            formally introduced Industry 5.0, positioning it as an addition to Industry 4.0 rather than its
+            replacement (Breque, De Nul, and Petridis, 2021).
+          </p>
+          <p>
+            In contrast to the 4IR narrative, which focuses on what new technology can do, 5IR asks what
+            technology can do for people. It puts worker welfare, environmental constraints, and the ability of
+            production systems to withstand shocks such as the COVID-19 pandemic alongside efficiency.
+          </p>
+          <p>
+            The Commission bases this change on three pillars: human-centricity, which adapts work to people;
+            sustainability, which uses circular-economy practices to keep production within planetary bounds; and
+            resilience, which builds industries able to withstand disruption rather than maximising efficiency alone.
+          </p>
 
-              <div className="dark-side-section">
-                <h3>3. AI Governance: The Risk of a False Sense of Security</h3>
-                <p>
-                  AI governance platforms such as Credo AI can help organisations organise governance requirements, assess AI-related risks, and document compliance activities. However, these tools should not be viewed as a complete replacement for continuous technical monitoring and operational risk management (Credo AI, n.d.).
-                </p>
-                <h4>Compliance Does Not Necessarily Equal Operational Security</h4>
-                <p>
-                  An organisation may meet documented governance requirements and appear compliant, yet its AI systems continue to exhibit unexpected behaviour or pose emerging security risks after deployment. Governance assessments provide useful evidence that controls and procedures are in place, but they need to form part of a broader lifecycle approach that includes continuous monitoring, testing, and evaluation.
-                </p>
-                <p>
-                  Treating compliance as a once-off activity can therefore create a false sense of security. Organisations must also consider how AI systems behave in real-world environments and how their risks change over time (Malesci, 2026).
-                </p>
-                <h4>The Importance of Local Context</h4>
-                <p>
-                  AI governance frameworks and assessment tools may also need to be adapted when they are applied in different regulatory and socio-economic environments. A governance assessment based on general international standards may not fully account for country-specific legislation or local conditions.
-                </p>
-                <p>
-                  In South Africa, organisations must consider relevant legislation and regulatory requirements, including the Protection of Personal Information Act (POPIA) and the Employment Equity Act. Therefore, an AI system that performs well against a general governance framework may still require additional assessment to determine whether it is appropriate for South African legal, demographic, and socio-economic conditions (Malesci, 2026).
-                </p>
-              </div>
+          <p>
+            <strong>Figure 2.</strong> The two eras overlap heavily in practice, and the &quot;revolution&quot;
+            framing itself is disputed.
+          </p>
+        </div>
 
-              <div className="dark-side-section">
-                <h3>Overall Critical Insight</h3>
-                <p>
-                  These three areas demonstrate that AI-related risks extend beyond the technical capabilities of the technologies themselves. Autonomous AI can make incorrect or manipulated decisions, Generative AI can produce unreliable outputs that become embedded in software and organisational processes, and governance platforms can create limitations when compliance is treated as a substitute for continuous risk management.
-                </p>
-                <p>
-                  Effective AI adoption, therefore, requires more than technological capability. It requires human expertise, continuous monitoring, independent verification, and governance that takes the operating context into account.
-                </p>
-              </div>
-
-              <div className="dark-side-section">
-                <h3>2. Negative Application</h3>
-                <p>
-                  <strong>Weaponisation of Emerging AI Technologies</strong>
-                </p>
-                <p>
-                  The growing capabilities of autonomous AI, Generative AI, and AI governance platforms create opportunities for legitimate organisations, but malicious actors can also exploit them. As these technologies become increasingly integrated into security operations, software development, and organisational decision-making, their capabilities may be used to increase the scale, speed, and sophistication of cyberattacks. AI should therefore be viewed not only as a defensive capability but also as a potential attack surface (Sarsekar &amp; Mirzan, n.d.).
-                </p>
-                <h4>1. Weaponisation of Autonomous AI Security</h4>
-                <p>
-                  Autonomous AI security systems are primarily designed to improve threat detection, monitoring, and incident response. However, the same features that make these systems useful to defenders, particularly their ability to operate continuously and make decisions with limited human intervention, may also create opportunities for malicious exploitation.
-                </p>
-                <p>
-                  One emerging concern is the potential use of agentic AI to automate aspects of cyberattacks. AI agents could assist attackers in identifying vulnerabilities, adapting attack strategies, and generating malicious content. This could reduce the level of technical expertise required for certain attacks while increasing the speed and scale at which malicious activities can be carried out (Sarsekar &amp; Mirzan, n.d.).
-                </p>
-                <p>
-                  Another concern is the manipulation of defensive AI systems through indirect prompt injection. Malicious content introduced through emails, documents, or other system data could influence how an AI security agent interprets an event. If the agent has extensive operational privileges, successful manipulation could lead to inappropriate security actions.
-                </p>
-                <p>
-                  This creates an important paradox: the more autonomy and authority given to a defensive AI system, the greater the potential consequences if that system is manipulated or makes an incorrect decision (Sarsekar &amp; Mirzan, n.d.).
-                </p>
-                <h4>2. Malicious Exploitation of Generative AI</h4>
-                <p>
-                  Generative AI can also lower barriers to certain forms of cybercrime by making it easier to produce convincing content, automate repetitive activities, and assist with technical tasks. This creates risks for both individuals and organisations (Credo AI, n.d.).
-                </p>
-                <p>
-                  One significant concern is the potential link between AI-generated code and software supply chain attacks. AI coding assistants may sometimes generate incorrect, unreliable, or nonexistent software dependencies. If developers adopt these recommendations without independently checking the packages and their sources, malicious actors could potentially exploit the situation by creating packages that resemble commonly suggested dependencies. In this way, an AI-generated error could become a security vulnerability once the recommendation is incorporated into organisational software (Kosinski &amp; Forrest, 2024).
-                </p>
-                <p>
-                  Generative AI may also make phishing and social engineering attacks more effective by enabling attackers to produce more convincing and contextually appropriate communications. The ability to generate content in different languages and adapt messages to particular organisational environments could make fraudulent communications more difficult to recognise. These risks show that the threat posed by Generative AI extends beyond the technology itself and includes its potential to strengthen existing forms of cybercrime.
-                </p>
-                <h4>3. Misuse of AI Governance and Compliance Mechanisms</h4>
-                <p>
-                  AI governance platforms are intended to improve accountability, risk assessment, documentation, and regulatory compliance. However, governance mechanisms can also be misused when organisations treat compliance as an end in itself rather than as part of a broader risk-management process.
-                </p>
-                <p>
-                  For example, an organisation could engage in ethics-washing by presenting evidence of governance processes or compliance assessments while failing to address risks that exist in the actual operation of an AI system. This highlights the difference between demonstrating that governance procedures exist and demonstrating that those procedures are actually effective in managing real-world risks (Credo AI, n.d.).
-                </p>
-                <p>
-                  There is also a broader concern that overly complex governance requirements could create barriers to competition. If compliance frameworks become excessively expensive or difficult to implement, smaller organisations and emerging technology providers may struggle to meet the requirements. Although strong governance is necessary, regulatory mechanisms should therefore promote accountability without unnecessarily restricting innovation or placing disproportionate burdens on smaller organisations.
-                </p>
-                <p>
-                  <strong>Overall Implication</strong>
-                </p>
-                <p>
-                  Taken together, these perspectives demonstrate that the increasing adoption of AI creates a dual-use environment. The same capabilities that allow organisations to automate security, software development, and governance can potentially be exploited by malicious actors or misused by organisations themselves.
-                </p>
-                <p>
-                  AI risk management should therefore consider not only whether AI systems can defend against external threats, but also how their autonomy, generated outputs, and governance mechanisms could themselves become sources of vulnerability.
-                </p>
-                <p>
-                  This reinforces the need for a balanced approach based on continuous monitoring, appropriate access controls, independent verification of AI-generated outputs, regular security testing, and human oversight of high-impact decisions. The goal should not be to eliminate AI autonomy, but to ensure that it operates within clearly defined and accountable boundaries.
-                </p>
-              </div>
-
-              <div className="dark-side-section">
-                <h3>3. Global Perspective</h3>
-                <p>
-                  <strong>Global Developments and Emerging Challenges</strong>
-                </p>
-                <p>
-                  Looking beyond South Africa, the global environment is characterised by several interconnected geopolitical, environmental, public health, and technological developments. These developments demonstrate the growing complexity of the global landscape and show how technological, social, and environmental challenges can influence one another.
-                </p>
-                <h4>1. Escalating Geopolitical Conflicts and Security Challenges</h4>
-                <p>
-                  <strong>Russia–Ukraine War:</strong> The United Nations Security Council convened an emergency briefing following intensified missile and drone attacks targeting civilian infrastructure in Ukraine. UN monitors reported a significant increase in civilian casualties during mid-2026, contributing to some of the highest levels of civilian harm recorded since the beginning of the conflict. More than 10.8 million Ukrainians were reported to require immediate humanitarian assistance (UN News, 2026).
-                </p>
-                <p>
-                  <strong>Middle East Crisis:</strong> In Gaza, UN agencies reported that approximately 94% of the population, representing around 2.1 million people, requires urgent shelter and humanitarian assistance. Humanitarian operations and ceasefire arrangements remain fragile amid continuing military activity and insecurity (UN News, 2026).
-                </p>
-                <p>
-                  <strong>Sudan and the Horn of Africa:</strong> Sudan continues to experience a complex humanitarian crisis characterised by armed conflict, food insecurity, famine, and large-scale displacement. The deteriorating situation has prompted ongoing international warnings about worsening humanitarian conditions and the need for increased humanitarian assistance (UN News, 2026).
-                </p>
-                <h4>2. Environmental and Climate Disruption</h4>
-                <p>
-                  Climate change and changing global weather patterns continue to create major environmental and socio-economic challenges. The World Meteorological Organisation (WMO) has raised concerns about changing ocean temperatures and the potential influence of El Niño and Indian Ocean climate patterns on extreme weather conditions.
-                </p>
-                <p>
-                  These developments may contribute to more frequent heatwaves, droughts, and floods, as well as other climate-related disruptions across regions. Such environmental changes can have wider effects on food security, infrastructure, public health, economic activity, and access to essential services (World Meteorological Organisation [WMO], 2026).
-                </p>
-                <h4>3. Emerging Global Public Health Challenges</h4>
-                <p>
-                  <strong>Ebola in Central Africa:</strong> The Democratic Republic of the Congo (DRC) continues to face Ebola-related public health challenges, requiring coordinated international responses involving vaccination, disease surveillance, and humanitarian assistance. International vaccine coordination efforts have included the deployment of emergency vaccine supplies, while funding limitations continue to pose challenges to effective outbreak containment (UN News, 2026).
-                </p>
-                <p>
-                  <strong>Mpox and Children's Health:</strong> Public health authorities in parts of West Africa have reported significant numbers of children among newly identified mpox cases. The increasing involvement of younger populations creates additional challenges for healthcare systems, particularly regarding disease surveillance, diagnosis, treatment, vaccination, and public health communication.
-                </p>
-                <h4>4. Technological Acceleration and Governance</h4>
-                <p>
-                  Technological development, particularly the rapid integration of Artificial Intelligence (AI), is occurring alongside these geopolitical, environmental, and public health challenges. International organisations are increasingly exploring AI applications to support public services, environmental monitoring, healthcare, and humanitarian activities. Examples include AI-assisted systems for detecting methane emissions and supporting medical diagnosis in resource-constrained environments.
-                </p>
-                <p>
-                  At the same time, the growing availability of AI-generated content has created new governance and security concerns. International organisations are developing initiatives to protect individuals and civil society from AI-enabled deepfakes, online harassment, automated disinformation, and other forms of digital manipulation (Slattery et al., 2024).
-                </p>
-                <p>
-                  <strong>Overall Global Implication</strong>
-                </p>
-                <p>
-                  These developments demonstrate that technological advancement cannot be considered in isolation from broader global challenges. Geopolitical conflict, climate disruption, public health emergencies, and technological change are increasingly interconnected.
-                </p>
-                <p>
-                  AI and other emerging technologies have the potential to support responses to these challenges, but their misuse can also intensify existing vulnerabilities. Effective technological governance, therefore, requires an understanding of the broader global environment in which these technologies are developed and deployed.
-                </p>
-              </div>
-
-              <div className="dark-side-section">
-                <h3>4. South African Perspective and Implications for South Africa</h3>
-                <p>
-                  The risks associated with autonomous AI, Generative AI, and AI governance have particular implications for South Africa because they intersect with the country's cybersecurity challenges, expanding digital economy, regulatory environment, and socio-economic diversity.
-                </p>
-                <p>
-                  Although these technologies offer opportunities to improve efficiency and service delivery, their adoption may also introduce new vulnerabilities when appropriate technical and governance safeguards are absent.
-                </p>
-                <h4>1. AI Security Vulnerabilities in Critical Infrastructure</h4>
-                <p>
-                  South African organisations face significant cybersecurity challenges, including ransomware, business email compromise, and other forms of cybercrime. In this environment, autonomous AI security tools could provide valuable support by assisting with threat detection and response, particularly where there are shortages of specialised cybersecurity skills.
-                </p>
-                <p>
-                  However, increasing reliance on autonomous security agents also introduces new risks. If these agents are given extensive privileges without appropriate runtime controls, monitoring, and human oversight, attackers may attempt to manipulate their behaviour through techniques such as indirect prompt injection.
-                </p>
-                <p>
-                  A compromised or misbehaving security agent could affect sensitive organisational systems, including municipal information systems, financial infrastructure, and other critical services. This demonstrates that AI-based security solutions should not automatically be considered secure simply because their purpose is to defend against cyber threats.
-                </p>
-                <h4>2. Generative AI, Phishing, and Software Supply-Chain Risks</h4>
-                <p>
-                  The growing adoption of Generative AI in South African businesses, particularly in areas such as financial services and software development, also creates new security considerations.
-                </p>
-                <p>
-                  Developers using AI coding assistants may unintentionally introduce insecure or unreliable dependencies if AI-generated recommendations are not independently verified. Hallucinated software packages represent one potential supply-chain risk because malicious actors could exploit confusion surrounding non-existent or similarly named packages.
-                </p>
-                <p>
-                  Generative AI may also increase the sophistication and scalability of phishing and social engineering attacks by enabling attackers to produce convincing, contextually appropriate messages. In South Africa's multilingual environment, the ability to generate content in multiple local languages could potentially make such attacks more difficult for users to recognise.
-                </p>
-                <p>
-                  These developments highlight the importance of secure software development practices, verification of AI-generated code, and ongoing user awareness (Institute of Risk Management South Africa, 2025).
-                </p>
-                <h4>3. AI Governance, POPIA, and Contextual Bias</h4>
-                <p>
-                  The increasing use of AI also creates important governance and regulatory considerations for South African organisations. Compliance with frameworks such as the Protection of Personal Information Act (POPIA) requires organisations to consider how personal information is collected, processed, and protected.
-                </p>
-                <p>
-                  However, compliance with general AI governance frameworks does not necessarily guarantee that an AI system is appropriate for the South African context. Governance frameworks and assessment tools developed primarily around international regulatory and risk-management approaches may not fully account for local socio-economic conditions, demographic diversity, or sector-specific requirements (Institute of Risk Management South Africa, 2025).
-                </p>
-                <p>
-                  This poses a risk of contextual or imported bias, where organisations rely on governance assessments that indicate compliance while overlooking risks particularly relevant to South African users and institutions.
-                </p>
-                <p>
-                  AI governance should therefore not rely exclusively on generic compliance dashboards or international benchmarks. Organisations should also evaluate whether AI systems are appropriate for local populations, regulatory requirements, languages, and socio-economic conditions.
-                </p>
-                <p>
-                  <strong>Overall Implication</strong>
-                </p>
-                <p>
-                  Taken together, these issues demonstrate that South Africa's adoption of AI requires a balance between technological innovation and contextual risk management.
-                </p>
-                <p>
-                  Autonomous AI can help organisations address resource constraints and improve efficiency, while Generative AI can support software development and business processes. However, these benefits may be undermined if AI is adopted without adequate security controls, verification mechanisms, and locally appropriate governance.
-                </p>
-                <p>
-                  South Africa, therefore, requires an approach to AI adoption that combines technological innovation with continuous monitoring, cybersecurity safeguards, regulatory compliance, and human oversight.
-                </p>
-              </div>
-
-              <div className="dark-side-section">
-                <h3>5. Critical Analysis</h3>
-                <p>
-                  While AI Governance, AI Security, and Generative AI are contributing to efficiency and innovation in the modern IT environment, their rapid adoption also exposes organisations to critical failure modes, operational risks, and systemic vulnerabilities.
-                </p>
-                <h4>1. The Dark Side of AI Governance</h4>
-                <p>
-                  AI governance platforms such as Credo AI can automate aspects of compliance by mapping system processes to regulations and frameworks, including the EU AI Act, NIST AI RMF, and POPIA. However, relying solely on structured governance platforms can create significant weaknesses.
-                </p>
-                <h4>Static "Compliance Theatre" versus Dynamic Failure</h4>
-                <p>
-                  According to Slattery et al. (2024), AI risks can emerge after deployment through complex, non-linear interactions rather than only from problems identified during pre-deployment assessments.
-                </p>
-                <p>
-                  Governance platforms such as Credo AI can evaluate policies, controls, and risk requirements, but these assessments do not necessarily provide continuous enforcement of emerging agent behaviour. This can create a false sense of security in which an organisation successfully passes compliance assessments while remaining exposed to active or emerging technical threats.
-                </p>
-                <h4>Centralisation Risks and Governance Gaps</h4>
-                <p>
-                  Research published by the National Conference of State Legislatures (Hooshidary et al., 2024) highlights concerns surrounding over-reliance on centralised policy frameworks and automated risk reporting. These approaches may be less effective when the underlying technical environment does not support continuous monitoring. When governance mechanisms fail to adapt to real-time threats such as prompt injection or data drift, organisations may fall into a form of “paperwork compliance”, where documentation receives greater attention than actual technical resilience.
-                </p>
-                <p>
-                  The analysis, therefore, indicates a significant gap between static AI governance and the dynamic nature of risks that emerge during system operation. Although governance platforms and centralised policy frameworks can support compliance, risk assessment, and accountability, they may not be sufficient when AI systems encounter changing data, adversarial inputs, users, and unexpected interactions after deployment.
-                </p>
-                <p>
-                  This highlights an important distinction between compliance and effective security. Compliance-oriented approaches primarily demonstrate that policies and controls exist, whereas resilient AI governance requires evidence that these controls continue to work under real-world conditions. For autonomous and agentic systems, this requires continuous monitoring, runtime enforcement, detection of anomalous behaviour, and mechanisms capable of responding to emerging threats such as prompt injection and data drift. AI governance should therefore be treated not as a static compliance activity, but as a continuous process that connects organisational policies with technical safeguards throughout the AI system lifecycle.
-                </p>
-                <h4>2. The Dark Side of AI Security</h4>
-                <p>
-                  Modern AI security is moving from static, rule-based systems to autonomous, agentic AI systems that can monitor threats, reason about security events, and execute remediation actions. Although this transition can improve the speed and scalability of security operations, granting AI agents operational authority introduces new risks. These risks arise not only from external attacks but also from the systems' autonomous decision-making capabilities.
-                </p>
-                <h4>Indirect Prompt Injection and Memory Poisoning</h4>
-                <p>
-                  Sarsekar and Mirzan (n.d.) highlight the vulnerability of AI and multi-agent systems to indirect prompt injection and related attacks during inference and operational processes. Malicious instructions can be embedded within seemingly legitimate inputs, such as system logs, emails, or user-generated content. When an autonomous security agent processes these inputs, the embedded instructions may influence its reasoning and subsequent actions. This illustrates a fundamental challenge in agentic systems: the distinction between information that an agent should analyse and instructions that it should follow can become blurred. Consequently, increasing the operational autonomy of security agents can also increase the potential impact of successful input manipulation.
-                </p>
-                <h4>The "Confused Deputy" and Self-Inflicted Disruption</h4>
-                <p>
-                  Research on multi-agent safety also highlights the potential consequences of incorrect autonomous decisions. If an AI security agent incorrectly identifies legitimate activity as malicious, it could potentially trigger automated remediation actions that disrupt normal operations. Because security agents may operate with elevated privileges, an incorrect decision could affect user access, applications, databases, or other critical systems. In extreme cases, excessive automation could therefore turn a defensive mechanism into a source of operational disruption. This reinforces the importance of limiting the authority given to autonomous security agents and ensuring that high-impact actions remain subject to appropriate controls and human oversight.
-                </p>
-                <h4>3. The Dark Side of Generative AI</h4>
-                <p>
-                  Generative AI has expanded beyond text generation to support software development, automation, and the orchestration of increasingly complex workflows. While these capabilities can improve productivity and operational efficiency, integrating AI-generated outputs into software development and automated processes introduces significant supply-chain and systemic risks.
-                </p>
-                <h4>Package Hallucinations and Supply-Chain Attacks</h4>
-                <p>
-                  Tozzi (2024) identifies package hallucination as an emerging concern in software supply chain security. Generative AI systems may produce references to software libraries or packages that do not exist.
-                </p>
-                <p>
-                  When developers trust and directly implement AI-generated code, they may subsequently search for these packages and unintentionally encounter malicious packages registered under similar or identical names. This creates a potential connection between AI hallucinations and software supply chain attacks, in which an error originating from an AI coding assistant could serve as an entry point for malicious software. The risk becomes greater when AI-generated code is adopted without verifying package authenticity, provenance, and security.
-                </p>
-                <h4>Systemic Hallucination Amplification</h4>
-                <p>
-                  A second concern is the amplification of inaccurate information within interconnected AI workflows. Kosinski and Forrest (2024) highlight potential risks in multi-agent and automated systems in which the output of one AI component becomes the input to another.
-                </p>
-                <p>
-                  In these environments, an inaccurate AI-generated result can be passed to subsequent stages and treated as a fact. Unlike conventional software failures, these errors may not trigger syntax or system-level warnings because each component may continue to function normally. The resulting problem is therefore not necessarily a failure of system functionality, but a failure in the information and reasoning on which subsequent decisions are based.
-                </p>
-                <p>
-                  Taken together, these perspectives demonstrate that Generative AI introduces risks that extend beyond individual model inaccuracies. AI-generated errors can become embedded within software dependencies or propagated through interconnected workflows, potentially transforming isolated hallucinations into broader organisational vulnerabilities. Organisations adopting Generative AI, therefore, require verification mechanisms that assess not only whether AI-generated outputs are technically functional, but also whether they are accurate, trustworthy, and safe to incorporate into downstream systems. This reinforces the importance of human verification, software dependency validation, provenance controls, and continuous monitoring when Generative AI is integrated into critical development and operational environments.
-                </p>
-              </div>
-
-              <div className="dark-side-section">
-                <h3>Conclusion</h3>
-                <p>
-                  The 2026 IT landscape is increasingly shaped by autonomous and agentic AI systems that can perform tasks independently, make decisions, and interact with other systems. Although these capabilities offer significant opportunities to improve efficiency and service delivery, the literature shows that increased autonomy also introduces new forms of technological risk. The central concern is therefore not AI adoption itself, but the potential consequences of giving AI systems operational authority without sufficient monitoring, security controls, and human oversight.
-                </p>
-                <p>
-                  Three key areas of concern emerge from the discussion. First, AI governance can become overly focused on static compliance when governance mechanisms assess policies and risks without continuously monitoring how AI systems behave after deployment. This creates a potential gap between compliance on paper and the actual security of AI systems during operation. Second, autonomous AI security agents can introduce new vulnerabilities when granted elevated privileges. Indirect prompt injection can manipulate the information an agent processes, while excessive autonomy may allow an incorrect or manipulated decision to lead to harmful actions. Third, integrating Generative AI into software development and automated workflows introduces supply-chain and systemic risks.
-                </p>
-                <p>
-                  Hallucinated software packages can potentially expose organisations to malicious dependencies, while inaccurate AI-generated outputs can spread through interconnected systems and contribute to cascading errors. These risks demonstrate that AI autonomy can amplify the consequences of both external attacks and internal AI errors. For emerging economies such as South Africa, where AI adoption can create important opportunities to improve operational efficiency and access to digital services, this creates a need for a balanced approach to technological adoption. Organisations should therefore move beyond checklist-based governance and passive adoption towards continuous and adaptive AI risk management. Technological resilience requires AI capabilities to operate within clearly defined boundaries, supported by continuous runtime monitoring, regular security testing and red-teaming, verification of AI-generated outputs, and human oversight of high-impact decisions.
-                </p>
-                <p>
-                  Rather than attempting to replace human judgment entirely, autonomous AI should operate within controlled environments where its actions can be monitored, challenged, and, when necessary, overridden. This approach allows organisations to benefit from AI-driven automation while reducing the likelihood that autonomous systems become sources of security breaches, operational disruption, or cascading technological failures.
-                </p>
-              </div>
-
-              <div className="references-block dark-side-references">
-                <h3>References</h3>
-                <ol>
-                  <li>African Union Development Agency. (2022). <em>Impact of Russia-Ukraine conflict on African food systems</em>. AUDA-NEPAD. Retrieved August 25, 2026, from <a href="https://www.nepad.org/microsite/impact-of-russia-ukraine-conflict-african-food-systems" target="_blank" rel="noreferrer">https://www.nepad.org/microsite/impact-of-russia-ukraine-conflict-african-food-systems</a></li>
-                  <li>Credo AI. (n.d.). <em>AI risk</em>. Credo AI Glossary. Retrieved August 25, 2026, from <a href="https://www.credo.ai/glossary/ai-risk" target="_blank" rel="noreferrer">https://www.credo.ai/glossary/ai-risk</a></li>
-                  <li>The Cyber Archive. (2026, April 22). <em>7 AI agent security attacks researchers proved work in 2025–2026</em>. Medium. <a href="https://medium.com/@thecyberarchive/7-ai-agent-security-attacks-researchers-proved-work-in-2025-2026-bd17cd9b020f" target="_blank" rel="noreferrer">https://medium.com/@thecyberarchive/7-ai-agent-security-attacks-researchers-proved-work-in-2025-2026-bd17cd9b020f</a></li>
-                  <li>Hooshidary, S., Canada, C., &amp; Clark, W. (2024, November 22). <em>Artificial intelligence in government: The federal and state landscape</em>. National Conference of State Legislatures. <a href="https://www.ncsl.org/technology-and-communication/artificial-intelligence-in-government-the-federal-and-state-landscape" target="_blank" rel="noreferrer">https://www.ncsl.org/technology-and-communication/artificial-intelligence-in-government-the-federal-and-state-landscape</a></li>
-                  <li>Institute of Risk Management South Africa. (2025, May 29). <em>Generative AI: A threat or an opportunity? Assessing the potential impact within the South African context</em>. IRMSA. <a href="https://www.irmsa.org.za/communications/generative-ai-threat-or-opportunity-assessing-potential-impact-within-south-african" target="_blank" rel="noreferrer">https://www.irmsa.org.za/communications/generative-ai-threat-or-opportunity-assessing-potential-impact-within-south-african</a></li>
-                  <li>Kosinski, M., &amp; Forrest, A. (2024, March 26). <em>What is a prompt injection attack?</em> IBM. <a href="https://www.ibm.com/think/topics/prompt-injection" target="_blank" rel="noreferrer">https://www.ibm.com/think/topics/prompt-injection</a></li>
-                  <li>Malesci, U. (2026, July 16). <em>Credo AI vs Holistic AI (2026): AI governance compared — and where Kosmoy fits</em>. Kosmoy. <a href="https://www.kosmoy.com/resources/blog/credo-ai-vs-holistic-ai/" target="_blank" rel="noreferrer">https://www.kosmoy.com/resources/blog/credo-ai-vs-holistic-ai/</a></li>
-                  <li>Sarsekar, P., &amp; Mirzan, S. R. (n.d.). <em>Prompt injection</em>. OWASP Foundation. Retrieved August 25, 2026, from <a href="https://owasp.org/www-community/attacks/PromptInjection" target="_blank" rel="noreferrer">https://owasp.org/www-community/attacks/PromptInjection</a></li>
-                  <li>Slattery, P., Saeri, A. K., Grundy, E. A. C., Graham, J., Noetel, M., Uuk, R., Dao, J., Pour, S., Casper, S., &amp; Thompson, N. (2024). <em>The AI risk repository: A comprehensive meta-review, database, and taxonomy of risks from artificial intelligence</em>. MIT FutureTech. <a href="https://airisk.mit.edu" target="_blank" rel="noreferrer">https://airisk.mit.edu</a></li>
-                  <li>Stellar Cyber. (2026, March 17). <em>Top agentic AI security threats in late 2026</em>. <a href="https://stellarcyber.ai/learn/agentic-ai-securiry-threats/" target="_blank" rel="noreferrer">https://stellarcyber.ai/learn/agentic-ai-securiry-threats/</a></li>
-                  <li>Tozzi, C. (2024, April 22). <em>Package hallucination: The latest, greatest software supply chain security threat?</em> IDC. <a href="https://www.idc.com/resource-center/blog/package-hallucination-the-latest-greatest-software-supply-chain-security-threat/" target="_blank" rel="noreferrer">https://www.idc.com/resource-center/blog/package-hallucination-the-latest-greatest-software-supply-chain-security-threat/</a></li>
-                  <li>UN News. (2026, August 24). <em>Security Council LIVE: Civilian suffering grows in Russia-Ukraine war</em>. United Nations. <a href="https://news.un.org/en/story/2026/08/1168191" target="_blank" rel="noreferrer">https://news.un.org/en/story/2026/08/1168191</a></li>
-                  <li>Wells, J. (2026, April 6). <em>7 AI agent failure modes and how to prevent them in production</em>. Galileo. <a href="https://galileo.ai/blog/agent-failure-modes-guide" target="_blank" rel="noreferrer">https://galileo.ai/blog/agent-failure-modes-guide</a></li>
-                  <li>World Meteorological Organization. (2026, July 31). <em>Strong El Niño expected to intensify</em> [Press release]. <a href="https://wmo.int/news/media-centre/strong-el-nino-expected-intensify" target="_blank" rel="noreferrer">https://wmo.int/news/media-centre/strong-el-nino-expected-intensify</a></li>
-                </ol>
-              </div>
-            </div>
+        <div className="comparison-table" role="table" aria-label="Comparison of Industry 4.0 and Industry 5.0">
+          <div className="comparison-row comparison-header" role="row">
+            <div role="columnheader">4IR / Industry 4.0</div>
+            <div role="columnheader">5IR / Industry 5.0</div>
           </div>
-        </section>
-
-        <section className={`section fourth-industrial ${activeDetailPage && activeDetailPage !== 'fourth-industrial-revolution' ? 'hidden-section' : ''}`} id="fourth-industrial-revolution" aria-label="Fourth Industrial Revolution">
-          <div className="fourth-industrial-inner">
-            <p className="eyebrow">Industry 4.0 to Industry 5.0</p>
-            <h2>From Industry 4.0 to Industry 5.0</h2>
-
-            <div className="paper-intro">
-              <p>
-                <em>Two overlapping technological eras, what each promises society, and why an Information Systems &amp; Technology professional should hold both narratives at arm’s length.</em>
-              </p>
-              <button type="button" className="back-btn" onClick={closeDetailPage}>Back to profile</button>
-            </div>
-
-            <div className="paper-block">
-              <h3>Understanding the Fourth Industrial Revolution</h3>
-              <p>
-                The World Economic Forum’s founder, Klaus Schwab, popularised the term “Fourth Industrial Revolution” (4IR) to refer to a time when developments in robotics, artificial intelligence, the Internet of Things, biotechnology, and big data are merging in ways that make it difficult to distinguish between the digital, biological, and physical realms (Schwab, 2016). In contrast to the Third Industrial Revolution, which brought computing and early digitisation, the Fourth Industrial Revolution (4IR) is defined by the interconnection of machines, data, and living systems at a scale and speed that its proponents claim is unprecedented. This includes devices that sense and act on the physical world without direct human input, algorithms that make decisions previously only made by humans, and smart factories that reconfigure themselves in real time. According to this theory, the compounding effect of multiple exponential technologies maturing together is what sets the 4IR apart from previous waves of automation, rather than a single invention.
-              </p>
-            </div>
-
-            <div className="paper-block">
-              <h3>The move toward a Fifth Industrial Revolution</h3>
-              <p>
-                In a 2021 policy paper, the Directorate-General for Research and Innovation of the European Commission formally introduced Industry 5.0, positioning it as an addition to Industry 4.0 rather than its replacement (Breque, De Nul, and Petridis, 2021). In contrast to the 4IR narrative, which focuses on what new technology can do, the 5IR asks what technology can do for people, putting worker welfare, environmental constraints, and the capacity of production systems to withstand shocks like the COVID-19 pandemic at the centre of design decisions alongside efficiency (Breque, De Nul, and Petridis, 2021). According to Breque, De Nul, and Petridis, the Commission bases this change on three pillars: human-centricity, which uses technology to adapt work to people rather than the other way around; sustainability, which uses circular economy practices to keep production within planetary bounds; and resilience, which builds industries that can withstand disruption rather than maximise efficiency alone.
-              </p>
-            </div>
-
-            <div className="comparison-table">
-              <div className="comparison-row comparison-header">
-                <div>Dimension</div>
-                <div>4IR / Industry 4.0</div>
-                <div>5IR / Industry 5.0</div>
-              </div>
-              <div className="comparison-row">
-                <div>Central question</div>
-                <div>What can this technology do?</div>
-                <div>What can technology do for people?</div>
-              </div>
-              <div className="comparison-row">
-                <div>Primary driver</div>
-                <div>Connectivity, automation, data</div>
-                <div>Wellbeing, sustainability, resilience</div>
-              </div>
-              <div className="comparison-row">
-                <div>Locus of value</div>
-                <div>Shareholder value, efficiency</div>
-                <div>Stakeholder value, worker &amp; planet</div>
-              </div>
-              <div className="comparison-row">
-                <div>Typical technology</div>
-                <div>AI, IoT, robotics, big data</div>
-                <div>Cobots, circular design, digital twins</div>
-              </div>
-              <div className="comparison-row">
-                <div>Key source</div>
-                <div>Schwab (2016)</div>
-                <div>Breque, De Nul &amp; Petridis (2021)</div>
-              </div>
-            </div>
-
-            <div className="paper-block">
-              <h3>Potential benefits to society</h3>
-              <p>
-                Both eras are argued to offer real gains when technology is deployed deliberately. A few examples, drawn from current literature:
-              </p>
-              <ul className="paper-list">
-                <li><strong>4IR:</strong> Wider access to services. AI-assisted diagnostics and telemedicine can extend specialist healthcare into areas with few doctors, and data-driven precision agriculture can raise yields with less water and fertiliser.</li>
-                <li><strong>4IR:</strong> New categories of work. Global estimates suggest that 4IR technologies could create more jobs than they displace overall, even though the two effects are unevenly distributed across regions and skill levels (Fox &amp; Signé, 2022).</li>
-                <li><strong>5IR:</strong> Safer, less strenuous work. Collaborative robots can take on physically demanding or hazardous tasks, freeing people for judgement- and creativity-based work rather than repetitive labour (Breque, De Nul and Petridis, 2021).</li>
-                <li><strong>5IR:</strong> Production within planetary limits. Circular-economy manufacturing, designed to reuse materials and cut emissions, responds directly to climate targets rather than treating sustainability as an afterthought (Breque, De Nul and Petridis, 2021).</li>
-              </ul>
-            </div>
-
-            <div className="paper-block">
-              <h3>Challenges the shift is likely to present</h3>
-              <ul className="paper-list">
-                <li><strong>4IR:</strong> Job displacement and inequality. Automation is expected to hit low-skilled and routine work hardest, and without deliberate policy the income gap between high- and low-skilled workers is likely to widen further (Zervoudi, 2020).</li>
-                <li><strong>4IR:</strong> Uneven readiness. In much of Sub-Saharan Africa, where large shares of the workforce are informally employed, 4IR technologies risk arriving faster than the education and infrastructure needed to benefit from them (Fox and Signé, 2022). A South African construction-industry study similarly found that patchy skills and awareness slowed the safety gains 4IR tools could otherwise deliver (Malomane, Musonda and Okoro, 2022).</li>
-                <li><strong>5IR:</strong> Whose “human-centric”? A model built around European worker wellbeing does not automatically extend to the labour that supplies its raw materials and components elsewhere in the world — resilience and sustainability framed at one end of a supply chain can still externalise cost to the other end.</li>
-                <li><strong>5IR:</strong> Hyperconnected exposure. The same sensors, cobots and data links that enable human-centric production widen the attack surface for cyber-intrusion, and privacy risk grows as more of a worker's movement and performance is captured as data.</li>
-              </ul>
-            </div>
-
-            <div className="paper-block">
-              <h3>A critical note, for IS&amp;T professionals</h3>
-              <p>
-                Considering the origins of these labels is worthwhile. The World Economic Forum created “4IR,” and the European Commission created “Industry 5.0.” Both organisations have an institutional stake in portraying technological change as urgent, logical, and deserving of their ongoing convening authority. This does not imply that either account is untrue, but it is a reason to interpret them as debates rather than objective statements of reality. According to this article, there isn’t a Fourth Industrial Revolution. Ian Moll, University of the Witwatersrand (2021), tests the 4IR against the standards that made previous industrial revolutions historically real, such as a truly new technological base, a transformed labour process, altered workplace relations, new community life, and global economic restructuring. Moll argues that current evidence meets few of these criteria, making “4IR” more of an ideological label than a proven historical fact. Industry 5.0 is now being asked a similar question.
-              </p>
-            </div>
-
-            <div className="paper-block">
-              <h3>Conclusion</h3>
-              <p>
-                The 4IR describes the fusion of digital, physical and biological technologies reshaping production and daily life; the 5IR is best understood as a corrective proposal, redirecting those same technologies toward human wellbeing, sustainability and resilience rather than efficiency alone. Both offer genuine social benefit in healthcare, safer work, and environmental performance and both carry a real risk of deepening inequality, particularly where skills and infrastructure lag behind the technology. Treating either label as an unquestioned fact, rather than a framing advanced by interested institutions, would be a mistake for anyone tasked with implementing these technologies responsibly.
-              </p>
-            </div>
-
-            <div className="references-block">
-              <h3>References</h3>
-              <p>Breque, M., De Nul, L., &amp; Petridis, A. (2021). Industry 5.0 – Towards a sustainable, human-centric and resilient European industry. Publications Office of the European Union. https://doi.org/10.2777/30840</p>
-              <p>Fox, L., &amp; Signé, L. (2022, September 23). Inclusion, inequality, and the Fourth Industrial Revolution (4IR) in Africa. Brookings. https://www.brookings.edu/articles/inclusion-inequality-and-the-fourth-industrial-revolution-4ir-in-africa</p>
-              <p>Malomane, R., Musonda, I., &amp; Okoro, C. S. (2022). The opportunities and challenges associated with the implementation of Fourth Industrial Revolution technologies to manage health and safety. International Journal of Environmental Research and Public Health, 19(2), Article 846. https://doi.org/10.3390/ijerph19020846</p>
-              <p>Moll, I. (2021). The myth of the Fourth Industrial Revolution. Theoria: A Journal of Social and Political Theory, 68(167), 1–38. https://doi.org/10.3167/th.2021.6816701</p>
-              <p>Oosthuizen, R. M. (2022). The Fourth Industrial Revolution – Smart technology, artificial intelligence, robotics and algorithms: Industrial psychologists in future workplaces. Frontiers in Artificial Intelligence, 5, Article 913168. https://doi.org/10.3389/frai.2022.913168</p>
-              <p>Schwab, K. (2016, January 14). The Fourth Industrial Revolution: What it means and how to respond. World Economic Forum. https://www.weforum.org/stories/technological-innovation/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/</p>
-              <p>Sott, M. K. (2026). Industry 5.0: Revolution or repackaging? Unveiling the ambiguities of the new industrial era. Sustainable Futures, 11, Article 101699. https://doi.org/10.1016/j.sftr.2026.101699</p>
-              <p>Zervoudi, E. K. (2020). Fourth Industrial Revolution: Opportunities, challenges, and proposed policies. In Industrial robotics – New paradigms. IntechOpen. https://doi.org/10.5772/intechopen.90412</p>
-            </div>
+          <div className="comparison-row" role="row">
+            <div role="cell"><strong>Central question</strong><br />What can this technology do?</div>
+            <div role="cell"><strong>Central question</strong><br />What can technology do for people?</div>
           </div>
-        </section>
-      </main>
+          <div className="comparison-row" role="row">
+            <div role="cell"><strong>Primary driver</strong><br />Connectivity, automation, data</div>
+            <div role="cell"><strong>Primary driver</strong><br />Wellbeing, sustainability, resilience</div>
+          </div>
+          <div className="comparison-row" role="row">
+            <div role="cell"><strong>Locus of value</strong><br />Shareholder value, efficiency</div>
+            <div role="cell"><strong>Locus of value</strong><br />Stakeholder value, worker and planet</div>
+          </div>
+          <div className="comparison-row" role="row">
+            <div role="cell"><strong>Typical technology</strong><br />AI, IoT, robotics, big data</div>
+            <div role="cell"><strong>Typical technology</strong><br />Cobots, circular design, digital twins</div>
+          </div>
+          <div className="comparison-row" role="row">
+            <div role="cell"><strong>Key source</strong><br />Schwab (2016)</div>
+            <div role="cell"><strong>Key source</strong><br />Breque, De Nul and Petridis (2021)</div>
+          </div>
+        </div>
 
+        <div className="paper-block">
+          <h3>Potential benefits to society</h3>
+          <p>
+            <strong>4IR - Wider access to services.</strong> AI-assisted diagnostics and telemedicine can extend
+            specialist healthcare into areas with few doctors, while data-driven precision agriculture can raise
+            yields with less water and fertiliser.
+          </p>
+          <p>
+            <strong>4IR - New categories of work.</strong> Global estimates suggest that 4IR technologies could
+            create more jobs than they displace overall, even though the effects are unevenly distributed across
+            regions and skill levels (Fox &amp; Signé, 2022).
+          </p>
+          <p>
+            <strong>5IR - Safer, less strenuous work.</strong> Collaborative robots can take on physically
+            demanding or hazardous tasks, freeing people for judgement and creativity rather than repetitive
+            labour (Breque, De Nul and Petridis, 2021).
+          </p>
+          <p>
+            <strong>5IR - Production within planetary limits.</strong> Circular-economy manufacturing designed
+            to reuse materials and cut emissions responds directly to climate targets rather than treating
+            sustainability as an afterthought (Breque, De Nul and Petridis, 2021).
+          </p>
+
+          <h3>Challenges the shift is likely to present</h3>
+          <p>
+            <strong>4IR - Job displacement and inequality.</strong> Automation is expected to affect low-skilled
+            and routine work most heavily. Without deliberate policy, the income gap between high- and low-skilled
+            workers is likely to widen further (Zervoudi, 2020).
+          </p>
+          <p>
+            <strong>4IR - Uneven readiness.</strong> In much of Sub-Saharan Africa, where large shares of the
+            workforce are informally employed, 4IR technologies may arrive faster than the education and
+            infrastructure needed to benefit from them (Fox and Signé, 2022). A South African construction study
+            similarly found that patchy skills and awareness slowed potential safety gains (Malomane, Musonda and
+            Okoro, 2022).
+          </p>
+          <p>
+            <strong>5IR - Whose human-centricity?</strong> A model built around European worker wellbeing does not
+            automatically extend to labour that supplies raw materials and components elsewhere in the world.
+            Resilience and sustainability at one end of a supply chain can still externalise costs to the other.
+          </p>
+          <p>
+            <strong>5IR - Hyperconnected exposure.</strong> Sensors, cobots, and data links widen the attack
+            surface for cyber-intrusion, while privacy risk grows as more worker movement and performance is
+            captured as data.
+          </p>
+        </div>
+
+        <div className="paper-block">
+          <h3>A critical note, for IS&amp;T professionals</h3>
+          <p>
+            Considering the origins of these labels is worthwhile. The World Economic Forum created &quot;4IR,&quot;
+            and the European Commission created &quot;Industry 5.0.&quot; Both organisations have an institutional
+            stake in portraying technological change as urgent, logical, and deserving of their ongoing convening
+            authority. This does not imply that either account is untrue, but it is a reason to interpret them as
+            debates rather than objective statements of reality.
+          </p>
+          <p>
+            Ian Moll of the University of the Witwatersrand (2021) tests 4IR against the standards that made
+            previous industrial revolutions historically real, including a genuinely new technological base, a
+            transformed labour process, altered workplace relations, new community life, and global economic
+            restructuring. Moll argues that current evidence meets few of these criteria, making &quot;4IR&quot; more
+            of an ideological label than a proven historical fact. Industry 5.0 is now being asked a similar
+            question.
+          </p>
+        </div>
+
+        <div className="paper-block">
+          <h3>Conclusion</h3>
+          <p>
+            4IR describes the fusion of digital, physical, and biological technologies reshaping production and
+            daily life. 5IR is best understood as a corrective proposal, redirecting those technologies toward
+            human wellbeing, sustainability, and resilience rather than efficiency alone.
+          </p>
+          <p>
+            Both offer genuine social benefits in healthcare, safer work, and environmental performance, and both
+            carry a real risk of deepening inequality where skills and infrastructure lag behind the technology.
+            Treating either label as an unquestioned fact, rather than a framing advanced by interested institutions,
+            would be a mistake for anyone tasked with implementing these technologies responsibly.
+          </p>
+        </div>
+
+        <div className="references-block fourth-industrial-references">
+          <h3>References</h3>
+          <p>
+            Dhakal, S. P. (2025). Fifth industrial revolution and the future of education and employment.{' '}
+            <em>Quality &amp; Quantity, 60</em>, 2459-2477.
+          </p>
+          <p>
+            Fanoro, M., Božanić, M., &amp; Sinha, S. (2021). A review of 4IR/5IR enabling technologies and their
+            linkage to manufacturing supply chain. <em>Technologies, 9</em>(4), 77.
+          </p>
+          <p>
+            IIUM Press. (2023). 4IR, 5IR, Society 5.0, and values in education [Editorial].{' '}
+            <em>IIUM Journal of Educational Studies (Arabic), 11</em>(1), 1-2.
+          </p>
+          <p>
+            Schwab, K. (2016). <em>The Fourth Industrial Revolution: What it means and how to respond</em>.
+            World Economic Forum.{' '}
+            <a
+              href="https://www.weforum.org/stories/technological-innovation/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://www.weforum.org/stories/technological-innovation/the-fourth-industrial-revolution-what-it-means-and-how-to-respond/
+            </a>
+          </p>
+          <p>
+            Xu, M., David, J. M., &amp; Kim, S. H. (2018). The Fourth Industrial Revolution: Opportunities and
+            challenges. <em>International Journal of Financial Research, 9</em>(2), 90-95.
+          </p>
+        </div>
+      </section>
+    </main>
+  )
+
+  const renderSouthAfricaPage = () => (
+    <main>
+      <section className="section page-view" id="fourth-and-fifth-industrial-revolution">
+        <div className="section-heading">
+          <p className="eyebrow">4IR and 5IR in South Africa</p>
+          <h2>Can South Africa Benefit from the Fourth and Fifth Industrial Revolutions Without Deepening Existing Inequalities?</h2>
+        </div>
+
+        <div className="paper-block south-africa-ir-report">
+          {southAfricaIRReport.map((section) => (
+            <div key={section.title} className="south-africa-ir-section">
+              <h3>{section.title}</h3>
+              {section.subsections?.map((subsection) => (
+                <div key={subsection.title} className="south-africa-ir-subsection">
+                  <h4>{subsection.title}</h4>
+                  {subsection.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 28)}>{paragraph}</p>
+                  ))}
+                </div>
+              ))}
+              {section.paragraphs?.map((paragraph) => (
+                <p key={paragraph.slice(0, 28)}>{paragraph}</p>
+              ))}
+            </div>
+          ))}
+
+          <div className="references-block south-africa-ir-references">
+            <h3>References</h3>
+            <p>
+              Balkaran, S. (n.d.). <em>The Fourth Industrial Revolution - Its impact on the South African public sector</em>.
+              Walter Sisulu University.
+            </p>
+            <p>
+              Department of Communications and Digital Technologies (DCDT). (2020). <em>4IR Project Management Office</em>.
+              {' '}<a href="https://www.dcdt.gov.za/4ir-pmo.html" target="_blank" rel="noreferrer">https://www.dcdt.gov.za/4ir-pmo.html</a>
+            </p>
+            <p>
+              International Trade Administration. (2026). <em>South Africa - Digital economy</em>. U.S. Department of Commerce.
+              {' '}<a href="https://www.trade.gov/country-commercial-guides/south-africa-digital-economy" target="_blank" rel="noreferrer">https://www.trade.gov/country-commercial-guides/south-africa-digital-economy</a>
+            </p>
+            <p>
+              Manda, M. I., &amp; Ben Dhaou, S. (2019). Responding to the challenges and opportunities in the 4th Industrial
+              Revolution in developing countries. <em>Proceedings of the 12th International Conference on Theory and Practice
+              of Electronic Governance (ICEGOV2019)</em>, Melbourne, Australia.
+            </p>
+            <p>
+              PwC &amp; Minerals Council of South Africa. (2026). <em>Ten insights into 4IR in South African mining 2026</em>.
+              {' '}<a href="https://www.pwc.co.za/en/press-room/ten-insights-into-4ir.html" target="_blank" rel="noreferrer">https://www.pwc.co.za/en/press-room/ten-insights-into-4ir.html</a>
+            </p>
+            <p>
+              Sutherland, E. (2020). The Fourth Industrial Revolution - The case of South Africa. <em>Politikon: South African
+              Journal of Political Studies, 47</em>(2), 233-252.
+            </p>
+            <p>
+              the dtic (Department of Trade, Industry and Competition). (2026). <em>South Africa&apos;s Industrial Development
+              Strategy 2026</em>.{' '}<a href="https://www.thedtic.gov.za/south-africas-industrial-development-strategy-2026/" target="_blank" rel="noreferrer">https://www.thedtic.gov.za/south-africas-industrial-development-strategy-2026/</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+
+  const renderContactPage = () => (
+    <main>
       <footer className="footer" id="contact">
         <div>
           <p className="eyebrow">Let’s connect</p>
-          <h2>Open to internships, graduate roles, and entry-level tech opportunities.</h2>
         </div>
 
         <div className="footer-actions">
@@ -1013,6 +1475,61 @@ function App() {
           </div>
         </div>
       </footer>
+    </main>
+  )
+
+  const renderPage = () => {
+    switch (activePage) {
+      case 'about':
+        return renderAboutPage()
+      case 'portfolio':
+        return renderPortfolioPage()
+      case 'interests':
+        return renderInterestsPage()
+      case 'trends':
+        return renderTrendsPage()
+      case 'dark-side':
+        return renderDarkSidePage()
+      case 'fourir':
+        return renderFourIRPage()
+      case 'sa-ir':
+        return renderSouthAfricaPage()
+      case 'contact':
+        return renderContactPage()
+      case 'home':
+      default:
+        return renderHomePage()
+    }
+  }
+
+  return (
+    <div className={`portfolio-page ${isDark ? 'theme-dark' : 'theme-light'}`}>
+      <header className="topbar">
+        <div className="brand">Z</div>
+
+        <nav className="nav" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              type="button"
+              className={`nav-button ${activePage === item.key ? 'active' : ''}`}
+              onClick={() => changePage(item.key)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={() => setIsDark((value) => !value)}
+        >
+          {isDark ? 'Light Mode' : 'Dark Mode'}
+        </button>
+      </header>
+
+      {renderPage()}
     </div>
   )
 }
