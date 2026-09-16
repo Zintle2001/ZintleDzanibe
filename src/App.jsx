@@ -1574,16 +1574,6 @@ function App() {
           ))}
         </nav>
 
-        {activePage !== 'home' && (
-          <button
-            type="button"
-            className="theme-toggle desktop-theme-toggle"
-            onClick={() => setIsDark((value) => !value)}
-          >
-            {isDark ? 'Light Mode' : 'Dark Mode'}
-          </button>
-        )}
-
         <button
           type="button"
           className="menu-toggle"
@@ -1614,16 +1604,6 @@ function App() {
             ))}
           </nav>
 
-          {activePage !== 'home' && (
-            <button
-              type="button"
-              className="theme-toggle mobile-theme-toggle"
-              onClick={() => setIsDark((value) => !value)}
-              tabIndex={menuOpen ? 0 : -1}
-            >
-              {isDark ? 'Light Mode' : 'Dark Mode'}
-            </button>
-          )}
         </div>
       </header>
 
