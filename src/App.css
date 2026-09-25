@@ -419,20 +419,20 @@ footer[id] {
 }
 
 .interests-content {
-  display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
-  gap: 28px;
-  align-items: start;
+  display: block;
 }
 
 .interests-content .interests-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
 }
 
 .interests-photos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
 
 .trend-report {
@@ -934,11 +934,12 @@ footer[id] {
 
 .interests-photo {
   display: block;
-  width: 100%;
+  flex: 0 0 220px;
+  width: 220px;
   height: 170px;
   margin: 0;
   border-radius: 18px;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   border: 1px solid var(--border);
   background: var(--bg-card);
