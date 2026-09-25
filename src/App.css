@@ -945,6 +945,52 @@ footer[id] {
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
 }
 
+.video-card {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+}
+
+.video-header {
+  margin-bottom: 16px;
+}
+
+.video-header h3 {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1.5rem;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.video-link:hover {
+  text-decoration: underline;
+}
+
 .motto-card {
   margin-top: 24px;
   padding: 24px;

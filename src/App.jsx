@@ -997,9 +997,29 @@ function App() {
   const renderInterestsPage = () => (
     <main>
       <section className="section page-view" id="interests">
-        <div className="section-heading">
-          <p className="eyebrow">Interests</p>
-          <h2>Things that inspire me beyond the classroom and workplace.</h2>
+        <div className="video-card">
+          <div className="video-header">
+            <h3>The power of podcast</h3>
+          </div>
+
+          <div className="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/srIdmoFs40I?start=2"
+              title="YouTube video for interests page"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+
+          <a
+            className="video-link"
+            href="https://www.youtube.com/watch?v=srIdmoFs40I&t=2s"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Watch on YouTube
+          </a>
         </div>
 
         <div className="interests-content">
