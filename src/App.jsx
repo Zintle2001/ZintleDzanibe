@@ -933,9 +933,12 @@ const renderCommunityWifiText = (text) => {
 
 function App() {
   const [isDark, setIsDark] = useState(true)
-  const [activePage, setActivePage] = useState(() => (
-    window.location.pathname.endsWith('/community-wifi/') ? 'community-wifi' : 'home'
-  ))
+  const [activePage, setActivePage] = useState(() => {
+    const queryPage = new URLSearchParams(window.location.search).get('page')
+    return queryPage === 'community-wifi' || window.location.pathname.endsWith('/community-wifi/')
+      ? 'community-wifi'
+      : 'home'
+  })
   const [menuOpen, setMenuOpen] = useState(false)
 
   const changePage = (page) => {
@@ -944,7 +947,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
     if (window.history && window.history.replaceState) {
-      const pagePath = page === 'community-wifi' ? 'community-wifi/' : ''
+      const pagePath = page === 'community-wifi' ? '?page=community-wifi' : ''
       window.history.replaceState(null, '', `${import.meta.env.BASE_URL}${pagePath}`)
     }
   }

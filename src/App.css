@@ -1772,7 +1772,11 @@ footer[id] {
   background: var(--bg-panel);
 }
 
-.coverage-figure img { max-height: 360px; }
+.coverage-figure img {
+  max-height: none;
+  height: auto;
+  object-fit: initial;
+}
 
 .article-figure figcaption {
   margin-top: 11px;
