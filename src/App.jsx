@@ -935,6 +935,7 @@ function App() {
   const [isDark, setIsDark] = useState(true)
   const [activePage, setActivePage] = useState(() => {
     const queryPage = new URLSearchParams(window.location.search).get('page')
+    if (queryPage === 'trends') return 'trends'
     return queryPage === 'community-wifi' || window.location.pathname.endsWith('/community-wifi/')
       ? 'community-wifi'
       : 'home'
@@ -947,7 +948,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
     if (window.history && window.history.replaceState) {
-      const pagePath = page === 'community-wifi' ? '?page=community-wifi' : ''
+      const pagePath = page === 'community-wifi' || page === 'trends' ? `?page=${page}` : ''
       window.history.replaceState(null, '', `${import.meta.env.BASE_URL}${pagePath}`)
     }
   }
