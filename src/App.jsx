@@ -1196,7 +1196,7 @@ function App() {
               <span>Reading time: 7 minutes</span>
             </div>
           </div>
-          <img className="article-hero-image" src={communityWifiHero} alt="Illustration of a solar-powered community Wi-Fi node in a rural landscape" />
+          <img className="article-hero-image" src={communityWifiCoverage} alt="Illustration of a solar-powered community Wi-Fi node in a rural landscape" />
         </header>
 
         <div className="article-facts" aria-label="Article facts">
@@ -1230,7 +1230,7 @@ function App() {
               <p>{renderCommunityWifiText('Mobile networks reach 98.8% of the population with 4G, yet only 1.6% of rural households have a home internet connection, compared with 13% of urban households. Where people can connect, a 20-gigabyte data bundle can eat up 38.4% of the monthly income of a household living at or below the poverty line. For a family in rural KwaZulu-Natal or the Eastern Cape, getting online is less a technology problem than a household budgeting problem.')}</p>
             </div>
             <figure className="article-figure coverage-figure">
-              <img src={communityWifiCoverage} alt="Graph comparing mobile coverage and home internet access in rural and urban South Africa" />
+              <img src={communityWifiHero} alt="Graph comparing mobile coverage and home internet access in rural and urban South Africa" />
               <figcaption>{renderCommunityWifiText('Mobile coverage is almost universal, but few rural households have home internet. Data: Association for Progressive Communications (2025).')}</figcaption>
             </figure>
 
