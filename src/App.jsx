@@ -10,6 +10,10 @@ import interestsPhotoFour from './assets/interests-photo-4.jpg'
 import fourIRPhoto from './assets/4IR.png'
 import securityAIPhoto from './assets/securityAI.png'
 import researchAIPhoto from './assets/ResearchAI.png'
+import communityWifiHero from './assets/Article/community-wifi-hero.png'
+import communityWifiCoverage from './assets/Article/community-wifi-coverage.jpg'
+import communityWifiMap from './assets/Article/community-wifi-map.png'
+import communityWifiNetwork from './assets/Article/community-wifi-network.png'
 
 const skills = [
   'Data Science',
@@ -809,9 +813,129 @@ const southAfricaIRReferences = [
   },
 ]
 
+const communityWifiSections = [
+  {
+    title: 'A different way to get online',
+    paragraphs: [
+      'Community Wi-Fi networks are locally built wireless systems. Residents put up rooftop antennas that pass one shared connection from house to house, forming a “mesh”. Many run on solar power and use spare radio airwaves, such as the gaps between TV channels. This suits areas where big operators cannot profitably serve so few people.',
+      'The proof already exists. In Mankosi, the Zenzeleni Networks cooperative, which grew out of research at the University of the Western Cape, built a solar-powered mesh network. It runs under an exemption from the usual licensing rules granted by the communications regulator, ICASA. Residents pay roughly R25 to R35 a month for uncapped Wi-Fi: a flat fee that does not run out like a data bundle.',
+    ],
+    note: 'Mankosi is a cluster of Eastern Cape villages where South Africa’s community Wi-Fi model is most established.',
+    image: communityWifiMap,
+    imageAlt: 'Schematic map of the places discussed in the article',
+    caption: 'The places discussed in this article. Schematic map drawn for this article; not to scale and locations are approximate.',
+  },
+  {
+    title: 'Why this counts as 4IR technology',
+    paragraphs: [
+      'The Fourth Industrial Revolution (4IR) is about digital tools such as online learning, telemedicine and digital services, all of which need a connection first. The Fifth (5IR) imagines humans working closely with sophisticated machines, but that assumes people are already connected enough to take part. That is not true across rural South Africa, so I treat community Wi-Fi as a 4IR technology: it builds the basic connectivity everything else depends on.',
+      'Sharing airwaves is 4IR technology too. In the trials, software monitors radios and hands idle capacity to other users in real time. Neither replaces human judgement with intelligent machines; they get communities online so 4IR tools can work.',
+    ],
+  },
+  {
+    title: 'What changes for a village',
+    paragraphs: [
+      'Cheaper, community-run data in Mankosi has enabled learners to apply for bursaries online and created local jobs for voucher sellers. Nationally, the SA Teen Entrepreneur Foundation’s programme trains small operators across seven provinces.',
+    ],
+    image: communityWifiNetwork,
+    imageAlt: 'Diagram showing how a community network like Zenzeleni works',
+    caption: 'How a community network like Zenzeleni’s works. Based on Wireless Access Providers’ Association (2019) and Tucker (2017).',
+  },
+  {
+    title: 'The catch: it takes more than cheap data',
+    paragraphs: [
+      'Rural terrain, unreliable electricity and distant backhaul (the long-distance link to the wider internet) make deployment costly even where airwaves are cheap. Only about 2% of Mankosi had grid electricity. Rules written for large operators also mean small networks depend on exemptions, as Zenzeleni’s did.',
+      'Funding is the deeper problem. The University of the Western Cape provides seed funding in Mankosi, and British money supports KwaZulu-Natal. To my mind, that is the model’s real weak point: it exists largely because a grant or a foreign government pays for it, not because it is truly community-owned yet.',
+    ],
+  },
+  {
+    title: 'Is South Africa ready?',
+    paragraphs: [
+      'Partly. ICASA has granted community-network exemptions, and the 2025–2027 National Strategy for Community Networks sets a national direction. The pending Electronic Communications Amendment Bill would, according to the Association for Progressive Communications, exempt community networks from licensing.',
+      'But readiness differs sharply by place. Only 46% of surveyed Gauteng households have home internet, with townships lowest. Nationally, 82.1% of households had internet access from anywhere in 2024, yet only 17.4% had fixed home internet. KwaZulu-Natal is a promising case because it has a funded initiative and public provincial support, while Eastern Cape villages such as Mankosi still face electricity limits.',
+    ],
+  },
+]
+
+const communityWifiFacts = [
+  { value: '13 million', label: 'South Africans remain offline' },
+  { value: '98.8%', label: 'Population covered by 4G' },
+  { value: 'R25–R35', label: 'Approximate monthly Mankosi fee' },
+]
+
+const communityWifiReferences = [
+  ['Association for Progressive Communications. (2025, August 26). National strategy for community networks in South Africa.', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ["Call for applications: Empower local community network operators to bridge SA's digital divide. (2025, November 10). ITWeb.", 'https://www.itweb.co.za/article/call-for-applications-empower-local-community-network-operators-to-bridge-sas-digital-divide/GxwQDq1Dgy9MlPVo'],
+  ["Colmer, P. (2026, February 20). South Africa's dynamic spectrum breakthrough: Rural connectivity finally gets its moment. Wireless Access Providers' Association.", 'https://wapa.org.za/news/south-africas-dynamic-spectrum-breakthrough-rural-connectivity-finally-gets-its-moment'],
+  ['Electronic Communications Amendment Bill [B 12–2026]. (2026). Parliament of the Republic of South Africa.', 'https://www.parliament.gov.za/bill/2328429'],
+  ['Hamann, C. (2026, June 8). Internet access is unequal in South Africa\'s economic powerhouse: Survey shows race and income mark the digital divide. The Conversation.', 'https://theconversation.com/internet-access-is-unequal-in-south-africas-economic-powerhouse-survey-shows-race-and-income-mark-the-digital-divide-282424'],
+  ['Illidge, M. (2026, April 9). South African village that built its own ISP with uncapped Wi-Fi for R35 per month. MyBroadband.', 'https://mybroadband.co.za/news/fibre/638514-south-african-village-that-built-its-own-isp-with-uncapped-wi-fi-for-r35-per-month.html'],
+  ["McLeod, D. (2026, April 5). South Africa's 5G boom is bypassing rural areas: Icasa. TechCentral.", 'https://techcentral.co.za/south-africas-5g-boom-is-bypassing-rural-areas-icasa/279784/'],
+  ['Mzila, S. (2026, September 1). MEC Buthelezi applauds British High Commission for investing in KwaZulu-Natal to improve digital communication in rural and township areas.', 'https://www.kzncogta.gov.za/mec-buthelezi-applauds-british-high-commission-for-investing-in-kwazulu-natal-to-improve-digital-communication-in-rural-and-township-areas/'],
+  ['Ngwenya, S. O., Heymann, R., Swart, T. G., & Lysko, A. A. (2023). Addressing accessibility, affordability and sustainability barriers for broadband internet access and penetration in rural areas [Conference paper]. CSIR ResearchSpace.', 'https://researchspace.csir.co.za/server/api/core/bitstreams/55ba68c2-7d65-4ec3-ac1f-94119122116d/content'],
+  ['1 World Connected. (2020). Zenzeleni Networks.', 'https://1worldconnected.org/project/africa_unlicensedwisp_zenzeleninetworkssouthafrica/'],
+  ['R25 for uncapped wifi: Zenzeleni Networks bridging digital divide in rural SA. (2023, July 6). News24.', 'https://www.news24.com/business/tech/r25-for-uncapped-wifi-zenzeleni-networks-bridging-digital-divide-in-rural-sa-20230706'],
+  ['Roveri, F. (2026a, April 10). Community networks shaping policies for digital inclusion in South Africa. Association for Progressive Communications.', 'https://www.apc.org/en/news/community-networks-shaping-policies-digital-inclusion-south-africa'],
+  ['Roveri, F. (2026b, July 29). How community connectivity pioneers are changing South Africa’s digital policy and regulation. Association for Progressive Communications.', 'https://www.apc.org/en/news/how-community-connectivity-pioneers-are-changing-south-africas-digital-policy-and-regulation'],
+  ['Sithole, P. (2019, May 3). Community networks key to bridging the connectivity gap in South Africa. Violence Prevention through Urban Upgrading.', 'https://vpuu.org.za/programmes/ict4d/community-networks-connectivity-gap/'],
+  ['Tucker, B. (2017, November 29). How a rural community built South Africa’s first ISP owned and run by a cooperative. The Conversation.', 'https://theconversation.com/how-a-rural-community-built-south-africas-first-isp-owned-and-run-by-a-cooperative-87448'],
+  ["Wireless Access Providers' Association. (2019, April 30). The rural community that built a network.", 'https://wapa.org.za/node/263'],
+]
+
+const communityWifiInlineLinks = [
+  ['field trials of 5G-quality internet running over radio airwaves ', 'https://wapa.org.za/news/south-africas-dynamic-spectrum-breakthrough-rural-connectivity-finally-gets-its-moment'],
+  ['that had sat idle for years', 'https://wapa.org.za/news/south-africas-dynamic-spectrum-breakthrough-rural-connectivity-finally-gets-its-moment'],
+  ['a R5 million project in Inanda township', 'https://www.kzncogta.gov.za/mec-buthelezi-applauds-british-high-commission-for-investing-in-kwazulu-natal-to-improve-digital-communication-in-rural-and-township-areas/'],
+  ['roughly 13 million South Africans who remain offline', 'https://www.apc.org/en/news/community-networks-shaping-policies-digital-inclusion-south-africa'],
+  ['South Africa’s community Wi-Fi model is most established', 'https://theconversation.com/how-a-rural-community-built-south-africas-first-isp-owned-and-run-by-a-cooperative-87448'],
+  ['Mobile networks ', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ['reach 98.8% of the population with 4G, yet only 1.6% of rural households have a home internet connection, compared with 13% of urban households', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ['38.4% of the monthly income', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ['less a technology problem than a household budgeting problem', 'https://wapa.org.za/news/south-africas-dynamic-spectrum-breakthrough-rural-connectivity-finally-gets-its-moment'],
+  ['Association for Progressive Communications (2025)', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ['areas where big operators cannot profitably serve so few people', 'https://vpuu.org.za/programmes/ict4d/community-networks-connectivity-gap/'],
+  ['The proof already exists', 'https://wapa.org.za/node/263'],
+  ['out of research at the University of the Western Cape', 'https://wapa.org.za/node/263'],
+  ['R25', 'https://www.news24.com/business/tech/r25-for-uncapped-wifi-zenzeleni-networks-bridging-digital-divide-in-rural-sa-20230706'],
+  ['R35', 'https://mybroadband.co.za/news/fibre/638514-south-african-village-that-built-its-own-isp-with-uncapped-wi-fi-for-r35-per-month.html'],
+  ['software monitors radios and hands idle capacity to other users in real time', 'https://wapa.org.za/news/south-africas-dynamic-spectrum-breakthrough-rural-connectivity-finally-gets-its-moment'],
+  ['enabled learners to apply for bursaries online and created local jobs for voucher sellers', 'https://www.news24.com/business/tech/r25-for-uncapped-wifi-zenzeleni-networks-bridging-digital-divide-in-rural-sa-20230706'],
+  ['trains small operators across seven provinces', 'https://www.itweb.co.za/article/call-for-applications-empower-local-community-network-operators-to-bridge-sas-digital-divide/GxwQDq1Dgy9MlPVo'],
+  ['make deployment costly even where airwaves are cheap', 'https://researchspace.csir.co.za/server/api/core/bitstreams/55ba68c2-7d65-4ec3-ac1f-94119122116d/content'],
+  ['Only about 2% of Mankosi had grid electricity', 'https://1worldconnected.org/project/africa_unlicensedwisp_zenzeleninetworkssouthafrica/'],
+  ['Zenzeleni’s did', 'https://wapa.org.za/node/263'],
+  ['provides seed funding in Mankosi', 'https://www.news24.com/business/tech/r25-for-uncapped-wifi-zenzeleni-networks-bridging-digital-divide-in-rural-sa-20230706'],
+  ['British money supports KwaZulu-Natal', 'https://www.kzncogta.gov.za/mec-buthelezi-applauds-british-high-commission-for-investing-in-kwazulu-natal-to-improve-digital-communication-in-rural-and-township-areas/'],
+  ['National Strategy for Community Networks', 'https://www.apc.org/en/pubs/national-strategy-community-networks-south-africa'],
+  ['Electronic Communications Amendment Bill', 'https://www.parliament.gov.za/bill/2328429'],
+  ['according to the Association for Progressive Communications', 'https://www.apc.org/en/news/how-community-connectivity-pioneers-are-changing-south-africas-digital-policy-and-regulation'],
+  ['Only 46% of surveyed Gauteng households have home internet, with townships lowest', 'https://theconversation.com/internet-access-is-unequal-in-south-africas-economic-powerhouse-survey-shows-race-and-income-mark-the-digital-divide-282424'],
+  ['82.1% of households had internet access from anywhere in 2024, yet only 17.4% had fixed home internet', 'https://techcentral.co.za/south-africas-5g-boom-is-bypassing-rural-areas-icasa/279784/'],
+  ['KwaZulu-Natal is a promising case', 'https://www.kzncogta.gov.za/mec-buthelezi-applauds-british-high-commission-for-investing-in-kwazulu-natal-to-improve-digital-communication-in-rural-and-township-areas/'],
+]
+
+const renderCommunityWifiText = (text) => {
+  const match = communityWifiInlineLinks
+    .map(([label, href]) => ({ label, href, index: text.indexOf(label) }))
+    .filter((item) => item.index >= 0)
+    .sort((first, second) => first.index - second.index)[0]
+
+  if (!match) return text
+
+  return (
+    <>
+      {text.slice(0, match.index)}
+      <a href={match.href} target="_blank" rel="noreferrer">{match.label}</a>
+      {renderCommunityWifiText(text.slice(match.index + match.label.length))}
+    </>
+  )
+}
+
 function App() {
   const [isDark, setIsDark] = useState(true)
-  const [activePage, setActivePage] = useState('home')
+  const [activePage, setActivePage] = useState(() => (
+    window.location.pathname.endsWith('/community-wifi/') ? 'community-wifi' : 'home'
+  ))
   const [menuOpen, setMenuOpen] = useState(false)
 
   const changePage = (page) => {
@@ -820,7 +944,8 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 
     if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, '', window.location.pathname)
+      const pagePath = page === 'community-wifi' ? 'community-wifi/' : ''
+      window.history.replaceState(null, '', `${import.meta.env.BASE_URL}${pagePath}`)
     }
   }
 
@@ -833,6 +958,7 @@ function App() {
     { key: 'dark-side', label: 'Dark Side' },
     { key: 'fourir', label: '4IR' },
     { key: 'sa-ir', label: '4IR and 5IR in SA' },
+    { key: 'community-wifi', label: 'Community Wi-Fi' },
     { key: 'contact', label: 'Contact' },
   ]
 
@@ -1049,6 +1175,102 @@ function App() {
           </div>
         </div>
       </section>
+    </main>
+  )
+
+  const renderCommunityWifiPage = () => (
+    <main>
+      <article className="section page-view community-article" id="community-wifi">
+        <header className="article-hero">
+          <div className="article-hero-copy">
+            <p className="eyebrow">Conversational article · South Africa · 2026</p>
+            <h1>Beyond Expensive Data: Can Community Wi-Fi Connect South Africa’s Rural Communities?</h1>
+            <p className="article-dek">
+              The signal may be strong, but access still fails when the price is impossible. Community networks offer a more local answer.
+            </p>
+            <div className="article-meta">
+              <span>By Zintle Zinyanga</span>
+              <span>Reading time: 7 minutes</span>
+            </div>
+          </div>
+          <img className="article-hero-image" src={communityWifiHero} alt="Illustration of a solar-powered community Wi-Fi node in a rural landscape" />
+        </header>
+
+        <div className="article-facts" aria-label="Article facts">
+          {communityWifiFacts.map((fact) => (
+            <div key={fact.label} className="article-fact">
+              <strong>{fact.value}</strong>
+              <span>{fact.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="article-layout">
+          <aside className="article-rail">
+            <p className="eyebrow">In this article</p>
+            <nav aria-label="Article sections">
+              {communityWifiSections.map((section, index) => (
+                <a key={section.title} href={`#wifi-section-${index + 1}`}>{section.title}</a>
+              ))}
+            </nav>
+          </aside>
+
+          <div className="article-body">
+            <p className="article-lead">
+              {renderCommunityWifiText('In January 2026, industry stakeholders in KwaZulu-Natal watched field trials of 5G-quality internet running over radio airwaves that had sat idle for years. Yet for millions of rural South Africans, the problem is not the signal but the price.')}
+            </p>
+            <p>
+              {renderCommunityWifiText('Months later, the British High Commission launched a R5 million project in Inanda township to support small community network operators. It targets the roughly 13 million South Africans who remain offline, mostly in rural, township and peri-urban areas. I know what that gap means because my family in rural KwaZulu-Natal ration data like a household bill. So can community Wi-Fi help? I argue that it can, but cheap data is only part of the answer. I focus on Mankosi, a cluster of Eastern Cape villages where South Africa’s community Wi-Fi model is most established.')}
+            </p>
+            <div className="article-callout">
+              <strong>The access gap is a budgeting problem.</strong>
+              <p>{renderCommunityWifiText('Mobile networks reach 98.8% of the population with 4G, yet only 1.6% of rural households have a home internet connection, compared with 13% of urban households. Where people can connect, a 20-gigabyte data bundle can eat up 38.4% of the monthly income of a household living at or below the poverty line. For a family in rural KwaZulu-Natal or the Eastern Cape, getting online is less a technology problem than a household budgeting problem.')}</p>
+            </div>
+            <figure className="article-figure coverage-figure">
+              <img src={communityWifiCoverage} alt="Graph comparing mobile coverage and home internet access in rural and urban South Africa" />
+              <figcaption>{renderCommunityWifiText('Mobile coverage is almost universal, but few rural households have home internet. Data: Association for Progressive Communications (2025).')}</figcaption>
+            </figure>
+
+            <p className="article-link-line">
+              <a href="https://www.bbc.com/news/av/world-africa-47723967/internet-access-in-africa-are-mesh-networks-the-future" target="_blank" rel="noreferrer">Watch: BBC News video on the Mankosi mesh network.</a>
+            </p>
+
+            {communityWifiSections.map((section, index) => (
+              <section key={section.title} className="article-section" id={`wifi-section-${index + 1}`}>
+                <p className="eyebrow">0{index + 1}</p>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => <p key={paragraph}>{renderCommunityWifiText(paragraph)}</p>)}
+                {section.note && <div className="article-note"><span>Field note</span>{section.note}</div>}
+                {section.image && (
+                  <figure className="article-figure">
+                    <img src={section.image} alt={section.imageAlt} />
+                    <figcaption>{section.caption}</figcaption>
+                  </figure>
+                )}
+              </section>
+            ))}
+
+            <section className="article-conclusion">
+              <p className="eyebrow">The short answer</p>
+              <h2>Not a silver bullet, but a start</h2>
+              <p>Community Wi-Fi will not replace the fibre backbone that South Africa still needs, nor fix unreliable power and roads. But for the roughly 13 million South Africans who remain offline, it offers something more valuable than a cheaper bundle: a network that communities can help own, manage and operate themselves.</p>
+            </section>
+
+            <section className="article-references">
+              <p className="eyebrow">Sources</p>
+              <h2>References</h2>
+              <ol>
+                {communityWifiReferences.map(([citation, url]) => (
+                  <li key={citation}>
+                    {citation}{' '}
+                    <a href={url} target="_blank" rel="noreferrer">{url}</a>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          </div>
+        </div>
+      </article>
     </main>
   )
 
@@ -1568,6 +1790,8 @@ function App() {
         return renderFourIRPage()
       case 'sa-ir':
         return renderSouthAfricaPage()
+      case 'community-wifi':
+        return renderCommunityWifiPage()
       case 'contact':
         return renderContactPage()
       case 'home':
