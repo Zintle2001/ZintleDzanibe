@@ -1773,9 +1773,14 @@ footer[id] {
 }
 
 .coverage-figure img {
-  max-height: none;
-  height: auto;
-  object-fit: initial;
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-width: 100%;
+  max-height: none !important;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .article-figure figcaption {
