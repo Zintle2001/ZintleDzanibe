@@ -1440,6 +1440,35 @@ function App() {
         </div>
 
         <div className="paper-block dark-side-report">
+          <div className="dark-side-overview" role="list" aria-label="Dark Side topic areas">
+            <div className="overview-chip" role="listitem">
+              <span className="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3 19 6v5c0 4.5-2.9 8.4-7 10-4.1-1.6-7-5.5-7-10V6l7-3Z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <span>AI Security</span>
+            </div>
+            <div className="overview-chip" role="listitem">
+              <span className="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" />
+                  <path d="M19 16v4m-2-2h4" />
+                </svg>
+              </span>
+              <span>Generative AI</span>
+            </div>
+            <div className="overview-chip" role="listitem">
+              <span className="chip-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m12 3 9 5H3l9-5Z" />
+                  <path d="M5 10v7m4-7v7m6-7v7m4-7v7M3 20h18m-17-3h16" />
+                </svg>
+              </span>
+              <span>Governance AI</span>
+            </div>
+          </div>
           {darkSideReport.map((section) => (
             <div key={section.title} className="dark-side-section">
               <h3>{section.title}</h3>
